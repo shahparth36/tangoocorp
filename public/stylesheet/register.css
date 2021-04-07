@@ -1,0 +1,233 @@
+body {
+    background-color:black;
+      background-image: url(https://www.onlineflowersandcakes.com/wp-content/uploads/2019/11/d5080d95c3bf9fb9ac4de5b6b5e875d3.jpg);
+    
+  }
+
+.main {
+    width: 500px;
+    height: 900px;
+    margin: 4em auto;
+    border-radius: 5px;
+    padding-top: 18.344px;
+    padding-bottom: 6%;
+    margin-top: 3%;
+    box-shadow: 0px 11px 14px 1px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+  
+.su {
+    margin-bottom: 10%;
+    font-weight: 500;
+    font-family: "Playball", cursive;
+    text-align: center;
+}
+  
+.first {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bcc2be;
+    text-align: center;
+    margin-bottom: 27px;
+
+}
+
+.number {
+    
+    width: 80%;
+    color: rgb(38, 50, 56);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bcc2be;
+    text-align: center;
+    margin-bottom: 27px;
+    
+}
+#phone{
+    margin-left: 10px;
+}
+  
+.mail {
+    width: 79%;
+    color: rgb(38, 50, 56);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bcc2be;
+    text-align: center;
+    margin-bottom: 27px;
+    
+}
+  
+.pass2 {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bcc2be;
+    text-align: center;
+    margin-bottom: 27px;
+
+}
+
+.pas{
+    margin-left: 15px;
+}
+
+.cal {
+    width: 76%;
+    color: rgba(38, 50, 56, 0.75);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bcc2be;
+    text-align: center;
+    margin-bottom: 27px;
+    margin-left: 0px;
+    margin-right: 8px;
+}
+
+.image_input{
+    width: 76%;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bcc2be;
+    text-align: center;
+    margin-bottom: 27px;
+    margin-left: 20px;
+    margin-right: 8px;
+
+}
+
+
+.submit {
+    border-radius: 5em;
+    color: #fff;
+    background:  rgb(0, 123, 255);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 4%;
+    font-size: 1em;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  
+}
+
+#brand {
+    background-color: black; 
+    z-index: 1; 
+}
+
+.wcolor {
+    color: white;
+}
+
+.first:focus,
+.mail:focus,
+.pass1:focus,
+.pass2:focus,
+.cal:focus,
+.number:focus {
+    border: 2px solid hsla(0, 0%, 3%, 0.72);
+    outline: 0;
+}
+
+.submit:hover {
+    box-shadow: 0 0 13px 1px rgba(167, 43, 188, 0.35);
+    cursor: pointer;
+}
+
+.submit:active {
+    box-shadow: none;
+}
+
+textarea:focus,
+input:focus {
+    color: #0c0b0c;
+}
+
+a {
+    color: #0c0b0c;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.mb {
+    color: #263238;
+}
+
+span.mb-2:hover {
+    color: #263238;
+}
+input::before {
+    content: icon  ;
+}
+
+
+
+.navbar-brand{
+    font-size: 2em;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    transition: 0.3s;
+    transition-property: color;
+
+}
+
+.navbar-brand:hover {
+    color: #19B3D3
+}
+
+.navbar{
+    padding: 2px 16px;
+}
+
+.navbar-nav{
+    font-size: 1.1em;
+}
+
+
+@media (max-width: 1040px) { 
+.main{
+    width:420px;
+    margin-top: 50px;
+}
+
+nav {
+    position: fixed;
+    padding-top: 0px;
+    width: 420px;
+  }
+}

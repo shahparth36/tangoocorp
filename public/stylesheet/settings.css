@@ -1,0 +1,393 @@
+/* Sidebar and navbar styling start */
+
+.sidebar {
+  background: black;
+  padding-top: 100px;
+  position: fixed;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  transition: 100%;
+  transition-property: right;
+}
+
+#check:checked ~ .sidebar {
+  left: 0px;
+  width: 250px;
+}
+
+#check:checked ~ .sidebar center {
+  left: 0px;
+  width: 250px;
+  display: block;
+}
+
+#check:checked ~ .sidebar a span {
+  display: inline-block;
+}
+
+#check:checked ~ .sidebar a {
+  font-size: 17px;
+  padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  margin-left: 250px;
+}
+#check:checked ~ .sidebar .scrollable {
+  margin-top: 0;
+}
+
+#check:checked ~ footer {
+  margin-left: 150px;
+}
+
+.sidebar .scrollable {
+  margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar h4 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.sidebar center {
+  display: none;
+}
+
+.sidebar span {
+  display: none;
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  text-decoration: none;
+  padding-left: 20px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover {
+  text-decoration: none;
+  color: white;
+  background: #19b3d3;
+}
+
+.sidebar i {
+  padding-right: 10px;
+}
+
+label #sidebar_btn {
+  z-index: 1;
+  padding-top: 1px;
+  color: white;
+  position: fixed;
+  cursor: pointer;
+  left: 17px;
+  top: 21px;
+  font-size: 20px;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+label #sidebar_btn:hover {
+  z-index: 1;
+  color: #19b3d3;
+}
+
+body {
+  width: 100%;
+}
+
+.content .container {
+  padding-top: 90px;
+}
+
+#check {
+  display: none;
+}
+
+#myBrand {
+  font-family: "Pacifico", cursive;
+  font-size: 28px;
+  color: white;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.star {
+  color: red;
+}
+
+#myBrand:hover {
+  color: #19b3d3;
+}
+
+#font {
+  font-family: "Pacifico", cursive;
+}
+
+#myNav {
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}
+
+#bottom {
+  display: block;
+}
+
+#myInput {
+  width: 78%;
+  margin-bottom: 10px;
+}
+
+form .filter_btn {
+  margin-bottom: 10%;
+}
+
+.home {
+  font-family: "Playball", cursive;
+}
+
+.content {
+  width: (100% - 250px);
+  height: 100%;
+  transition: 0.5s;
+}
+
+/* Navbar and sidebar styling end */
+
+.navimg {
+  margin-left: 40px;
+  margin-right: 5px;
+}
+
+.chclass {
+  height: 50px;
+}
+
+.padclass {
+  padding-left: 0px;
+}
+
+.fclass {
+  margin-left: 375px;
+}
+
+.imgc {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+}
+
+.footer-content {
+  color: white;
+}
+
+.footer {
+  background: black;
+  height: auto;
+  padding: 50px 0px;
+  margin-top: 50px;
+}
+
+.footer a:hover {
+  color: #19b3d3;
+}
+
+.vl {
+  border-left: 1px solid black;
+  height: 700px;
+}
+
+.hl {
+  border-top: 1px solid black;
+  margin: 40px 0px;
+}
+
+.paclass {
+  border-bottom: 2px solid black;
+  color: black;
+}
+
+#profilediv {
+  display: none;
+}
+
+.hlr {
+  display: none;
+}
+
+hr {
+  width: 460px;
+  background-color: black;
+}
+
+.hrLogo {
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 40px;
+  padding-bottom: 15px;
+}
+
+.rounded-lg {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+}
+
+@media (max-width: 1367px) {
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
+  .card {
+    width: 1050px;
+    margin-left: 20px;
+  }
+}
+
+/* Styling for mobile size */
+
+@media (max-width: 1040px) {
+  .fclass {
+    margin-left: 30px;
+  }
+
+  .abcd {
+    margin-left: 100px;
+  }
+
+  .dclass {
+    padding-right: 25px;
+  }
+
+  .sidebar {
+    display: none;
+    width: 0px;
+  }
+
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #myNav {
+    padding-top: 0px;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    padding-top: 0.8525rem;
+  }
+
+  .navimg {
+      margin-left: 30px;
+  }
+
+  #myInput {
+    width: 78%;
+    margin-bottom: 10px;
+  }
+
+  #myForm {
+    display: none;
+  }
+
+  #bottom {
+    display: block;
+  }
+
+  label #sidebar_btn {
+    left: 14px;
+  }
+
+  .vl {
+    display: none;
+  }
+
+  .hlr {
+    border-top: 1px solid black;
+    display: block;
+  }
+
+  #idDiv {
+    display: none;
+  }
+
+  .card {
+    width: 375px;
+    margin-left: 0;
+  }
+
+  .imgc {
+    width: 330px;
+    height: 330px;
+  }
+
+  hr {
+    margin-left: 10px;
+    width: 100px;
+  }
+
+  .hrLogo {
+    margin-left: 0px;
+    margin-right: 15px;
+    padding-left: 5px;
+  }
+
+  .rounded-lg {
+    width: 350px;
+    padding-right: 180px;
+  }
+
+  .mclass {
+    margin-right: 14px;
+  }
+
+  .gclass {
+    text-align: center;
+  }
+
+}

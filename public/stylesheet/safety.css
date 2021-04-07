@@ -1,0 +1,503 @@
+
+.sidebar {
+  background: black;
+  padding-top: 50px;
+  position: fixed;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  transition: 100%;
+  transition-property: right;
+}
+
+.navImg {
+    margin-left: 40px; 
+    margin-right: 5px;
+}
+
+#check:checked ~ .sidebar {
+  left: 0px;
+  width: 250px;
+}
+
+#check:checked ~ .sidebar center {
+  left: 0px;
+  width: 250px;
+  display: block;
+}
+
+#check:checked ~ .sidebar a span{
+  display: inline-block;
+}
+
+#check:checked ~ .sidebar a {
+  font-size: 17px;
+  padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  padding-left: 50px;
+}
+#check:checked ~ .sidebar .scrollable {
+  margin-top: 0;
+}
+
+#check:checked ~ footer {
+margin-left: 150px;
+}
+
+.sidebar .scrollable {
+  margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  width: 100px;
+  height:  100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar h4 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.sidebar center {
+  display: none;
+}
+
+.sidebar span {
+  display: none;
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  text-decoration: none;
+  padding-left: 20px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover {
+text-decoration: none;
+color: white;
+background: #19B3D3;
+}
+
+.sidebar i {
+padding-right: 10px;
+}
+
+label #sidebar_btn {
+z-index: 1;
+padding-top: 1px;
+color: white;
+position: fixed;
+cursor: pointer;
+left: 17px;
+top: 21px;
+font-size: 20px;
+transition: 0.5s;
+transition-property: color;
+}  
+
+label #sidebar_btn:hover {
+z-index: 1;
+color: #19B3D3;
+}
+
+
+.content {  
+    width: 1200px;
+    padding-top: 150px;
+    margin-left: 200px;
+    height: 100%;
+    transition: 0.5s;
+}
+
+#check {
+display: none;
+}
+
+#myBrand {
+font-family: 'Pacifico', cursive;
+font-size: 28px;
+color: white;
+transition: 0.3s;
+transition-property: color;
+}
+
+#myBrand:hover {
+color: #19B3D3;
+}
+
+#font {
+font-family: 'Pacifico', cursive;
+}
+
+
+#myNav {
+padding-top: 15px;
+height: 9.5%;
+background-color: black;
+color: white;
+padding-bottom: 20px; 
+}
+
+#bottom {
+display: block;
+}
+
+#myInput {
+width: 78%;
+margin-bottom: 10px;
+}
+
+form .filter_btn {
+margin-bottom: 10%;
+}
+
+.home{
+font-family: 'Playball', cursive;
+}
+
+#check:checked ~ footer {
+  margin-left: 250px;
+}
+
+/* Navbar and sidebar styling end */
+
+.footer-content {
+  color: white;
+}
+
+.footer {
+  margin-left: 50px;
+  background: black;
+  
+  height: auto; 
+  padding: 50px 0px; 
+}
+
+.footer a:hover {
+  color: #19B3D3;
+}
+
+.body{
+    font-weight:100;	
+    margin-bottom:20px;
+    
+}
+.heaad{
+    color:white;
+    background: black;
+
+}
+
+#riskone{
+    display:none;
+}
+#risktwo{
+    display:none;
+}
+#riskthree{
+    display:none;
+}
+#riskfour{
+    display:none;
+}
+#riskfive{
+    display:none;
+}
+#risk6{
+    display:none;
+}
+#riskseven{
+    display:none;
+}
+#risk8{
+    display:none;
+}
+#risknine{
+    display:none;
+}
+#riskten{
+    display:none;
+}
+#btnone{
+    display:none;
+    margin-left:8px;
+}
+#btntwo{
+    display:none;
+    margin-left:8px;
+}
+#btnthree{
+    display:none;
+    margin-left:8px;
+}
+#btnfour{
+    display:none;
+    margin-left:8px;
+}
+#btnfive{
+    display:none;
+    margin-left:8px;
+}
+#btn6{
+    display:none;
+    margin-left:8px;
+}
+#btnseven{
+    display:none;
+    margin-left:8px;
+}
+#btn8{
+    display:none;
+    margin-left:8px;
+}
+#btnnine{
+    display:none;
+    margin-left:8px;
+}
+#btnten{
+    display:none;
+    margin-left:8px;
+}
+.riskcont{
+    font-size:1.3em;
+
+    
+}
+
+#safetytips{
+    background:#e6ffff;
+    text-align:center
+}
+.backa{
+    color:white;
+    background: black;
+    border:2px solid ;
+    border-radius:5px;
+}
+.intro{
+    font-size:1.3em;
+}
+#youtubeimage{
+    
+    margin-bottom:30px;
+    width:50%;
+}
+#aboveimg{
+    margin-top:8px;
+    font-size:1.1em;
+}
+.pas{
+    text-decoration:underline;
+}
+
+#btnsixteen{
+    display:none;
+    margin-left:8px;
+}
+#btnfifteen{
+    display:none;
+    margin-left:8px;
+}
+#btnfourteen{
+    display:none;
+    margin-left:8px;
+}
+#btnthirteen{
+    display:none;
+    margin-left:8px;
+}
+#btntwelve{
+    display:none;
+    margin-left:8px;
+}
+#btneleven{
+    display:none;
+    margin-left:8px;
+}
+
+a:hover{
+    text-decoration:none;
+}
+a:focus { 
+    outline: 0; 
+}
+.panel-group .panel-heading {
+    background: white;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.title-block{
+    font-size:20px;
+}
+.panel-group .panel-body {
+    font-size: 16px;
+    background: #f6f6f6;
+    -webkit-box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.03);
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.03);
+}
+.panel-collapse{
+    /* height: 0px; */
+    margin-top:-10px;
+    margin-bottom:10px;
+    padding: 0px;
+    
+}
+.panel-group .panel .panel-heading a{
+    color: black;
+    font-size:20px;
+
+}    
+
+#myTab {
+    justify-content: center;
+}
+
+
+@media(max-width:1367px){
+
+    /* .content{
+        margin-left: 200px;
+      width: 1200px;
+    } */
+
+    .sidebar {
+      padding-top: 20px;
+    }
+  
+    #check:checked ~ .sidebar {
+      padding-top: 50px;
+    }
+  
+    .container{
+      margin-left: -50px;
+      width:1100px;
+    }
+
+    .intro{
+        margin-left: 75px;
+        width: 1000px;
+    }
+
+
+  }
+
+
+
+/* Styling for mobile size */
+
+@media (max-width: 1040px) {
+
+  .small1 {
+      display: none;
+  }
+
+  #profile {
+      display: none;
+  }
+
+  .title-block {
+      font-size: 17px;
+  }
+
+  #myTab {
+      justify-content: start;
+  }
+
+  .content {
+    margin-left: 70px;
+    width: 360px;
+  }
+
+  .container {
+    width: 360px;
+  }
+
+  #container1{
+    margin-left: -100px;
+    width: 400px;
+}
+
+  .sidebar {
+    display: none;
+    width: 0px;
+  }
+
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #myNav {
+    padding-top: 0px;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    padding-top: 0.6525rem;
+  }
+
+  .footer {
+    margin-left: -50px;
+    width: 500px;
+  }
+
+#myInput {
+      width: 78%;
+      margin-bottom: 10px;
+}
+
+#myForm {
+      display: none;
+}
+
+#bottom {
+      display: block;
+}
+
+label #sidebar_btn {
+      left: 14px;
+}
+
+}
+.class12345 {
+  padding: 0px 17px;
+}
+
+.weight {
+  font-weight: 400;
+  line-height: 1.2;
+}

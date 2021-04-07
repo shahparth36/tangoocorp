@@ -1,0 +1,627 @@
+div.wrapper_work {
+  float: left; /* important */
+  position: relative; /* important(so we can absolutely position the description div */
+}
+div.description {
+  position: absolute; /* absolute position (so we can position it where we want)*/
+  bottom: 0px; /* position will be on bottom */
+  width: 100%;
+  background-color: black;
+  color: white;
+  opacity: 0.4;
+}
+
+.wrapper_work img {
+  width: 300px;
+  height: 259px;
+}
+
+p.description_content {
+  padding: 30px;
+  margin: 0px;
+  filter: alpha(opacity=60);
+}
+
+body {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.hello {
+  height: 80px;
+  padding-left: 65px;
+}
+
+.range {
+  width: 500px;
+  height: 10px;
+
+  border-radius: 4px;
+  background-color: #ddd;
+}
+
+.range__button_1 {
+  position: absolute;
+  top: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  cursor: move;
+  transform: translateY(-50%);
+
+  border: none;
+  border-radius: 50%;
+  background-color: #999;
+}
+
+.range__button_2 {
+  position: absolute;
+  top: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  cursor: move;
+  transform: translateY(-50%);
+
+  border: none;
+  border-radius: 50%;
+  background-color: #999;
+}
+
+.range__between {
+  position: absolute;
+  height: 5px;
+  width: 0px;
+  margin-top: 3px;
+  border: none;
+  background-color: #559933;
+}
+.range_inpt1 {
+  margin-top: 20px;
+  width: 50px;
+}
+
+.range_inpt2 {
+  margin-top: 20px;
+  width: 50px;
+}
+
+.footer-content {
+  color: white;
+}
+
+.footer {
+  background: black;
+  height: auto;
+  padding: 50px 0px;
+  margin-top: 100px;
+}
+
+.footer a:hover {
+  color: #19b3d3;
+}
+
+.modal-title {
+  margin-right: 100px;
+}
+
+/* Sidebar and navbar styling start */
+
+.sidebar {
+  background: black;
+  padding-top: 100px;
+  position: fixed;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  transition: 100%;
+  transition-property: right;
+}
+
+#check:checked ~ .sidebar {
+  left: 0px;
+  width: 280px;
+}
+
+#check:checked ~ .sidebar center {
+  left: 0px;
+  width: 280px;
+  display: block;
+}
+
+#check:checked ~ .sidebar a span {
+  display: inline-block;
+}
+
+#check:checked ~ .sidebar a {
+  font-size: 17px;
+  padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  margin-left: 250px;
+}
+
+#check:checked ~ .sidebar .scrollable {
+  margin-top: 0;
+}
+
+.sidebar .scrollable {
+  margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar h4 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.sidebar center {
+  display: none;
+}
+
+.sidebar span {
+  display: none;
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  text-decoration: none;
+  padding-left: 20px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover {
+  text-decoration: none;
+  color: white;
+  background: #19b3d3;
+}
+
+.sidebar i {
+  padding-right: 10px;
+}
+
+label #sidebar_btn {
+  z-index: 1;
+  padding-top: 1px;
+  color: white;
+  position: fixed;
+  cursor: pointer;
+  left: 17px;
+  top: 21px;
+  font-size: 20px;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+label #sidebar_btn:hover {
+  z-index: 1;
+  color: #19b3d3;
+}
+
+.content {
+  max-width: 100%;
+  padding-top: 100px;
+  margin-left: 200px;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+#check {
+  display: none;
+}
+
+#myBrand:hover {
+  color: #19b3d3;
+}
+
+#font {
+  font-family: "Pacifico", cursive;
+}
+
+#myBrand {
+  font-family: "Pacifico", cursive;
+  font-size: 28px;
+  color: white;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+#myNav {
+  padding-top: 18px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}
+
+#bottom {
+  display: block;
+}
+
+#myInput {
+  width: 78%;
+  margin-bottom: 10px;
+}
+
+form .filter_btn {
+  margin-bottom: 10%;
+}
+
+.home {
+  font-family: "Playball", cursive;
+}
+
+/* Navbar and sidebar styling end */
+
+.navimg {
+  margin-left: 40px;
+  margin-right: 5px;
+}
+
+.container1 .cona {
+  text-decoration: none;
+}
+
+.card-body {
+  height: 80px;
+}
+
+/* Card Styling start */
+
+.container1 {
+  margin-top: 5%;
+  padding-left: 0;
+  margin-left: 220px;
+  width: 75%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+#check:checked ~ .content .container1 {
+  width: 80%;
+  margin-left: 140px;
+}
+
+.container1 .cards {
+  position: relative;
+  /* left: 20%; */
+  padding: 0px;
+  /* margin-left: 25px; */
+}
+
+.container1 .cards .face {
+  width: 300px;
+  height: 216px;
+  transition: 0.5s;
+}
+
+.container1 .cards .face.face1 {
+  position: relative;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(117px);
+}
+
+.container1 .cards:hover .face.face1 {
+  transform: translateY(0);
+}
+
+.container1 .cards .face.face2 {
+  position: relative;
+  background: black;
+  color: #fff;
+
+  margin-top: 18px;
+
+  /* margin-left: 50px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-116px);
+}
+
+.container1 .cards:hover .face.face2 {
+  transform: translateY(0);
+}
+
+.container1 .cards .face.face2 .content1 p {
+  margin: 0;
+  padding: 0;
+}
+
+.container1 .card .face.face1 .content1 img {
+  margin-left: 0;
+  border: none;
+  /* max-width: 150px; */
+}
+
+.container1 .cards .face.face1 .content1 p {
+  /* margin: 10px 0 0 ; */
+  padding: 5px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.container1 .cards .face.face2 a {
+  margin: 15px 0 0;
+  /* display: inline-block; */
+  text-decoration: none;
+  font-weight: 900;
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.container1 .cards .face.face2 .row a:hover {
+  background: white;
+  color: black;
+}
+
+.explore {
+  font-family: "Playball", cursive;
+}
+
+.pUsername {
+  /* text-decoration: none; */
+  font-size: 20px;
+}
+
+.mgclass {
+  margin-left: 50px;
+}
+
+/* Card Styling end */
+
+/* Age filter styling */
+
+input[type="range"] {
+  width: 210px;
+  height: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+}
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 200px;
+  height: 1px;
+  background: #003d7c;
+}
+
+input[type="range"]:nth-child(2)::-webkit-slider-runnable-track {
+  background: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  margin-top: -7px;
+  background: #fff;
+  border: 1px solid #003d7c;
+  border-radius: 25px;
+  z-index: 1;
+}
+
+input[type="range"]:nth-child(1)::-webkit-slider-thumb {
+  z-index: 2;
+}
+
+.rangeslider {
+  position: relative;
+  height: 60px;
+  width: 210px;
+  display: inline-block;
+  margin-top: -5px;
+  margin-left: 20px;
+}
+.rangeslider input {
+  position: absolute;
+}
+.rangeslider {
+  position: absolute;
+}
+
+.rangeslider span {
+  position: absolute;
+  margin-top: 30px;
+  left: 0;
+}
+
+.rangeslider .right {
+  position: relative;
+  float: right;
+  margin-right: -5px;
+}
+
+.jumbotron button {
+  background-color: black;
+  color: white;
+}
+
+.jumbotron button:hover {
+  background-color: #19b3d3;
+  color: black;
+}
+/* age filter styling end */
+
+/* styling for ipad size */
+@media (max-width: 1367px) {
+  .sidebar {
+    padding-top: 75px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 70px;
+  }
+
+  .form-inline {
+    height: 75px;
+  }
+
+  #myInput {
+    height: 35px;
+  }
+
+  #check:checked ~ .sidebar a {
+    line-height: 45px;
+  }
+
+  .container1 {
+    width: 1100px;
+    margin-left: 175px;
+  }
+
+  .jumbotron {
+    width: 1100px;
+    margin-left: 25px;
+  }
+
+  #check:checked ~ .content .container1 {
+    margin-left: 70px;
+    width: 1000px;
+  }
+
+  #check:checked ~ .content .jumbotron {
+    width: 1050px;
+    margin-left: 20px;
+  }
+}
+
+/* Styling for mobile size */
+
+@media (max-width: 1040px) {
+  .card-body {
+    padding: 1.25rem 0px;
+  }
+
+  .mgclass {
+    margin: 10px 2px;
+  }
+
+  .rangeslider {
+    margin-left: -10px;
+  }
+
+  #myNav {
+    padding-top: 8px;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    padding-top: 1.8525rem;
+  }
+
+  .navimg {
+    margin-left: 30px;
+  }
+
+  .container-fluid {
+    padding-left: 0px;
+  }
+
+  .sidebar {
+    display: none;
+    width: 0px;
+  }
+
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ #myNav {
+    height: 9.5%;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  .jumbotron {
+    width: 300px;
+    margin-right: 55px;
+    margin-left: 20px;
+  }
+
+  .footer {
+    margin-left: -50px;
+  }
+
+  .content {
+    margin-left: 213px;
+  }
+
+  #check:checked ~ .container {
+    margin-left: 250px;
+    padding-left: 100px;
+  }
+
+  #myInput {
+    width: 78%;
+    margin-bottom: 10px;
+  }
+
+  #myForm {
+    display: none;
+  }
+
+  #bottom {
+    display: block;
+  }
+
+  label #sidebar_btn {
+    left: 14px;
+  }
+
+  .container1 {
+    width: 300px;
+    margin-left: 35px;
+  }
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <title>Tango | OTP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet/otp.css">
+</head>
+
+<body>
+    <nav id="brand" class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">
+            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+                width="42" height="42" class="d-inline-block align-top imgclass" alt="">
+            <span id="myBrand">Tango</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+                <a href="/login" class=" nav-link active mr-3" style="color: white;"><i class="fas fa-sign-in-alt mr-2"
+                        aria-hidden="true"></i> Login</a>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <% if(error && error.length>0){ %>
+        <div class="row d-flex justify-content-between m-2">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
+                <%= error %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        <% } %>
+        <% if(success && success.length>0){ %>
+        <div class="row d-flex justify-content-between m-2">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
+                <%= success %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <div class="container align-items-center justify-content-center">
+        <div class="card shadow-lg">
+            <form action="/otp" method="POST">
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <label class="col-form-label-lg">Contact Number Verification</label>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row text-center mb-3 hello">
+                    <div class="col-12">
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-sms"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter OTP" name="enteredOTP"
+                                aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <input type="text" name="otp" value="<%= otp %>" class="d-none">
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">First Name </label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[firstName]" value="<%= firstName %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Last Name</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[lastName]" value="<%= lastName %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Username</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[username]" value="<%= username %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Email ID</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i
+                                        class="fas fa-envelope"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[email]"
+                                value="<%= email %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Age</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><img
+                                        src="https://image.shutterstock.com/image-illustration/vector-icon-16-age-restriction-260nw-1602444523.jpg"
+                                        width="23" height="23"> </i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[age]"
+                                value="<%= age %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">DOB</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i
+                                        class="fas fa-birthday-cake"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[dob]"
+                                value="<%= dob %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-sm-9 mx-5 mb-4 d-none">
+                        <label class="col-form-label-lg d-none">Phone Number</label>
+                        <div class="input-group flex-nowrap d-none">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[phNumber]" value="<%= phNumber %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="password" value="<%= password %>">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="image" value="<%= image %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="imageId" value="<%= imageId %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="result1" value="<%= result.secure_url %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="result2" value="<%= result.public_id %>">
+                    </div>
+                </div>
+                <div class="row my-3 mx-5 justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-block rounded-0">Submit</button>
+                </div>
+            </form>
+            <form action="/resendotp" method="POST">
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">First Name </label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[firstName]" value="<%= firstName %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Last Name</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[lastName]" value="<%= lastName %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Username</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[username]" value="<%= username %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Email ID</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i
+                                        class="fas fa-envelope"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[email]"
+                                value="<%= email %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">Age</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><img
+                                        src="https://image.shutterstock.com/image-illustration/vector-icon-16-age-restriction-260nw-1602444523.jpg"
+                                        width="23" height="23"> </i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[age]"
+                                value="<%= age %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4 d-none">
+                        <label class="col-form-label-lg">DOB</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i
+                                        class="fas fa-birthday-cake"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[dob]"
+                                value="<%= dob %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-sm-9 mx-5 mb-4 d-none">
+                        <label class="col-form-label-lg d-none">Phone Number</label>
+                        <div class="input-group flex-nowrap d-none">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"
+                                name="user[phNumber]" value="<%= phNumber %>" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="password" value="<%= password %>">
+                        <input type="text" class="form-control" name="retypedpassword" value="<%= retypedpassword %>">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="image" value="<%= image %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="imageId" value="<%= imageId %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="result1" value="<%= result.secure_url %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="result2" value="<%= result.public_id %>">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" name="result" value="<%= result %>">
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1 mb-3 mx-5">
+                    <button type="submit" class="btn btn-success btn-block rounded-0">Resend OTP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</body>
+
+</html>

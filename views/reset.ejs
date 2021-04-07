@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon"
+		href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+		type="image/x-icon">
+	<title>Tango | Reset Password</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="/stylesheet/reset.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; z-index: 1; ">
+		<a style="font-size: 2em " class=" navbar-brand" href="/">
+			<img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+				width="42" height="42" class="d-inline-block align-top navImg" alt="">
+			<span id="myBrand">Tango</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+			<ul class="navbar-nav ml-auto">
+				<a href="/login" class=" nav-link active mr-3" style="color: white;"><i class="fas fa-sign-in-alt mr-2"
+						aria-hidden="true"></i> Login</a>
+				<a href="/register" class=" nav-link active mr-3" style="color: white;"><i class="fas fa-user-plus mr-2"
+						aria-hidden="true"></i> Register</a>
+			</ul>
+		</div>
+	</nav>
+	<% if(error && error.length>0){ %>
+	<div class="alert alert-danger" role="alert">
+		<%= error %>
+	</div>
+	<% } %>
+	<% if(success && success.length>0){ %>
+	<div class="alert alert-success" role="alert">
+		<%= success %>
+	</div>
+	<% } %>
+	<div class="container-fluid rclass">
+		<form action="/reset/<%= token %>" method="POST">
+			<div id="myCard" class="card text-center">
+				<div class="card-body">
+					<div class="card-text">
+						<h5 class="card-title">Reset Password</h5>
+						<div class="input-group mt-4 mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-key keySymbol"></i></span>
+							</div>
+							<input type="password" minlength="8" name="password" id="password-field1" placeholder="New password"
+								autofocus="autofocus" class="form-control" >
+								<span
+								toggle="#password-field1"
+								class="fa fa-fw fa-eye field-icon pass"
+								id="toggle-password1" style="margin-top:10px; margin-left: 5px;"
+							></span>
+							<span type="button" data-toggle="tooltip" style="margin-top:6px; margin-left: 3px;" data-placement="right" title="Password must contain atleast 8 characters">
+								<i class="fa fa-info-circle"></i>
+							</span>
+						</div>
+						<div class="input-group mt-4 mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-key keySymbol"></i></span>
+							</div>
+							<input type="password" minlength="8" name="confirm" value="" id="password-field2"  placeholder="Confirm password"
+							 class="form-control" >
+							 <span
+							 toggle="#password-field2"
+							 class="fa fa-fw fa-eye field-icon pass"
+							 id="toggle-password2" style="margin-top:10px; margin-left: 5px;"
+						   	></span>
+						   	<span type="button" data-toggle="tooltip" style="margin-top:6px; margin-left: 3px;" data-placement="right" title="Password must contain atleast 8 characters">
+							 <i class="fa fa-info-circle"></i>
+						 	</span>	
+						</div>
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block" style="margin-top: 30px;">Update Password</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+	<!-- Optional JavaScript
+	-->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+		<script src="scripts/reset.js"></script>	
+</body>
+
+</html>

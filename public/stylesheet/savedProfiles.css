@@ -1,0 +1,389 @@
+/* Sidebar and navbar styling start */
+
+.sidebar {
+  	background: black;
+  	padding-top: 100px;
+  	position: fixed;
+  	left: 0;
+  	width: 60px;
+  	height: 100%;
+  	transition: 100%;
+  	transition-property: right;
+}
+
+#check:checked ~ .sidebar {
+  	left: 0px;
+  	width: 250px;
+}
+
+#check:checked ~ .sidebar center {
+  	left: 0px;
+  	width: 250px;
+  	display: block;
+}
+
+#check:checked ~ .sidebar a span{
+  	display: inline-block;
+}
+
+#check:checked ~ .sidebar a {
+  	font-size: 17px;
+  	padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  	margin-left: 250px;
+}
+#check:checked ~ .sidebar .scrollable {
+  	margin-top: 0;
+}
+
+#check:checked ~ footer {
+    margin-left: 150px;
+}
+
+.sidebar .scrollable {
+  	margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  	width: 100px;
+  	height:  100px;
+  	border-radius: 100px;
+  	margin-bottom: 10px;
+}
+  
+.sidebar h4 {
+  	color: white;
+  	margin-top: 0;
+  	margin-bottom: 40px;
+}
+
+.sidebar center {
+  	display: none;
+}
+
+.sidebar span {
+  	display: none;
+}
+
+.sidebar a {
+  	color: #fff;
+  	display: block;
+  	width: 100%;
+  	line-height: 50px;
+  	text-decoration: none;
+  	padding-left: 20px;
+  	box-sizing: border-box;
+  	transition: 0.5s;
+  	transition-property: background;
+}
+  
+.sidebar a:hover {
+    text-decoration: none;
+    color: white;
+    background: #19B3D3;
+}
+
+.sidebar i {
+    padding-right: 10px;
+}
+
+label #sidebar_btn {
+    z-index: 1;
+    padding-top: 1px;
+    color: white;
+    position: fixed;
+    cursor: pointer;
+    left: 17px;
+    top: 21px;
+    font-size: 20px;
+    transition: 0.5s;
+    transition-property: color;
+}  
+
+label #sidebar_btn:hover {
+    z-index: 1;
+    color: #19B3D3;
+}
+
+
+.content {  
+    width: (100% -250px);
+    margin-left: 100px;
+    height: 100%;
+    transition: 0.5s;
+}
+
+#check {
+    display: none;
+}
+  
+#myBrand:hover {
+    color: #19B3D3;
+}
+
+#font {
+    font-family: 'Pacifico', cursive;
+}
+
+#myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
+}
+  
+#myNav {
+  padding-top: 18px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}
+
+#bottom {
+    display: block;
+}
+
+#myInput {
+    width: 78%;
+    margin-bottom: 10px;
+}
+
+form .filter_btn {
+    margin-bottom: 10%;
+}
+
+.home{
+    font-family: 'Playball', cursive;
+}
+
+/* Navbar and sidebar styling end */
+
+.navimg {
+  margin-left: 40px; 
+  margin-right: 5px;
+}
+
+/* cards styling start  */
+h1{
+	font-size: 36px;
+	color: #555;
+	font-weight: bold;
+}
+
+h3{
+	font-size: 24px;
+	color: black;
+	font-weight: bold;
+}
+
+h5{
+  font-size: 16px;
+  color: #6c757d;
+}
+
+#team img{
+  border-radius: 50%; 
+  height: 200px; 
+  width: 200px;
+	margin-top: -125px;
+}
+
+#team i{
+  padding-top: 100px;
+	font-size: 30px;
+	color: black;
+}
+
+#team p{
+  color: #6c757d;
+	font-weight: 500;
+}
+
+#team .card{
+	border-radius: 0;
+  box-shadow: 5px 5px 10px #444;
+  height: 400px;
+  margin-bottom: 45%;
+  text-decoration: none;
+	transition: all 0.3s ease-in;
+	-webkit-transition:all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+}
+
+#team .card:hover{
+	background: black;
+	color: #999;
+	border-radius: 5px;
+  border: none;
+  text-decoration: none;
+	box-shadow: 5px 5px 10px #9E9E9E;
+	z-index: 1;
+}
+
+#team .card:hover h3, #team .card:hover i{
+	color: #fff;
+}
+
+#team a{
+  text-decoration: none;
+}
+
+.footer-content {
+    color: white;
+}
+
+footer h5 {
+  color: white;
+}
+
+.footer {
+    background: black;
+    
+    height: auto; 
+    padding: 50px 0px; 
+}
+
+.footer a:hover {
+    color: #19B3D3;
+}
+
+
+
+/* #team .card:hover h5, #team .card:hover p{
+  color: #999;
+} */
+.saved{
+  font-family: 'Playball', cursive;
+  color: black;
+}
+
+.like{
+  font-family: 'Playball', cursive;
+  font-size: 50px;
+}
+
+.first .container{
+  margin-top: 70px;
+}
+
+
+@media (max-width: 1367px){
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
+  #container1{
+    width: 95%;
+    margin-left: -25px;
+  }
+
+  .jumbotron{
+    margin-left:-35px;
+    width: 98%;
+  }
+}
+
+
+/* card styling end  */
+
+@media (max-width: 1040px) {
+
+    .content {
+      width: 300px;
+    }
+
+    .sidebar {
+        display: none;
+        width: 0px;
+    }
+
+    #check:checked ~ .sidebar {
+        display: block;
+        width: 100%;
+    }
+
+    #check:checked ~ .content {
+        display: none;
+    }
+
+    #check:checked ~ .footer {
+        display: none;
+    }
+
+    #check:checked ~ .sidebar center {
+        display: block;
+        margin-left: 80px;
+    }
+
+    #check:checked ~ .sidebar a {
+        padding-left: 170px;
+    }
+
+  #myNav {
+    padding-top: 0px;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    padding-top: 0.8525rem;
+  }
+
+  .navimg {
+      margin-left: 30px;
+  }
+
+  #myInput {
+    width: 78%;
+    margin-bottom: 10px;
+  }
+
+  #myForm {
+    display: none;
+  }
+
+  #bottom {
+    display: block;
+  }
+
+  label #sidebar_btn {
+    left: 14px;
+  } 
+
+  #team .card{
+    width: 300px;
+  }
+
+  #team #container1{
+    margin-left: -180px;
+    width:300px;
+    margin-right: 0px;
+  }
+
+  .jumbotron{
+    width:300px;
+    margin-left: -170px;
+    margin-right: 0px;
+  }
+
+  .footer{
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 50px;
+    width: 500px;
+  }
+}
+
+
+
+
+

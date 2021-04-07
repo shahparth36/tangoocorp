@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dating App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">   
+     <!-- <link rel="stylesheet" type="text/css" href="stylesheet/darkmode.css"> -->
+    
+
+<body>
+
+     <div class="ui container">
+      <div class="ui secondary  menu">
+        <a class="active item" href="/">
+          Home
+        </a>
+        <a class="item" href="/explore">Explore</a>
+        <form action="/explore" method="GET" class="item form-inline">
+          <div class="container ">
+             <input type="text" name="fullName" placeholder="search fullName" class="form-control"> 
+             <button type="submit" class="btn btn-primary">Search</button> 
+          </div>
+        </form>  
+        
+
+        <div class="right menu">
+           <!-- <div class="item">
+              Light / Dark Mode
+            <input class="container_toggle" type="checkbox" id="switch" name="mode">
+            <label for="switch">  Toggle</label>
+        </div>  -->
+          <div class="item">
+            <a class="ui item" href="/login">
+              Login
+            </a>
+            </div>
+            <div class="item">
+              <a class="ui item" href="/register">
+                Sign Up
+              </a>
+            </div>
+          <div class="item">
+          <a class="ui item" href="/logout">
+            Logout
+          </a>
+        </div>
+      </div>    
+
+    </div>
+    <% if(error && error.length>0){ %>
+      <div class="alert alert-danger" role="alert">
+          <%= error %>
+      </div> 
+  <% } %>
+  <% if(success && success.length>0){ %>
+      <div class="alert alert-success" role="alert">
+          <%= success %>
+      </div>
+  <% } %>
+    </div>
+    </div>
+
+
+
+    <!-- <script src="scripts/darkmode.js"></script>  -->
+
+
+   
+ 
+ 

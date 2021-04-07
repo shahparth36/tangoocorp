@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/safety.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Safety Tips | Tango</title>
+</head>
+
+<body>
+    <!-- Navbar and sidebar start -->
+
+    <input type="checkbox" id="check">
+    <nav id="myNav" class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+                width="42" height="42" class="d-inline-block align-top navImg" alt="">
+            <span id="myBrand">Tango</span>
+        </a>
+    </nav>
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="<%= currentUser.image %>" class="profile_image" alt="">
+            <h4><%= currentUser.fullName %></h4>
+        </center>
+        <div class="scrollable">
+            <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </div>
+    </div>
+
+    <!-- Navbar and sidebar end -->
+
+    <div class="content my-5 py-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                    aria-selected="true">Safety</a>
+            </li>
+            <li class="nav-item small1" role="presentation">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                    aria-selected="false">Resources</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                    aria-selected="false">FAQ's</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="body">
+                    <div class="container border shadow-lg mt-5">
+                        <div class="col-lg-12 mt-5">
+                            <div class="container bootstrap snippet">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-center pl-4 pt-3 display-4">
+                                                Help Center
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <p class="intro text-center mt-4">We want you to feel safe and comfortable so here's some
+                                                info on that for you.
+                                                <br></br>
+                                                Meeting new people is exciting, but you should always be cautious when interacting with
+                                                somefour you
+                                                don’t know. Use your best judgment and put your safety first, whether you are exchanging
+                                                initial
+                                                messages or meeting in person. While you can’t control the actions of others, there are
+                                                things you can
+                                                do to help you stay safe during your Tango experience.
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10  mx-auto">
+                                        <h3 class="title-block second-child text-center my-3">Safety Tips</h3>
+                                        <div class="panel-group pb-5 ml-5" id="faqList">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel1" id="one"
+                                                            class="collapsed">
+                                                            Keep chats restricted to the website or app<i id="btnone"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel1" class="panel-collapse collapse" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">“It’s really important to keep all dialogue restricted to the
+                                                            messaging services on the website. If you
+                                                            keep conversations strictly on the site scammers are unlikely to target you,
+                                                            because they know the
+                                                            dating site will detect their behaviour.”</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel2" id="two"
+                                                            class="collapsed">
+                                                            Block anyone suspicious<i id="btntwo" class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel2" class="panel-collapse collapse" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            "On the dating site users’ behavior can be monitored, so if someone becomes
+                                                            abusive or
+                                                            inappropriate, the site can respond accordingly. You also have the ability
+                                                            to block someone
+                                                            on a dating site messaging system."
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel3" id="three"
+                                                            class="collapsed">
+                                                            Take time to get to know someone before meeting<i id="btnthree"
+                                                                class="fas fa-caret-down"></i> </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel3" class="panel-collapse collapse" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            “When you meet someone you can quickly feel like you know them really well,
+                                                            because it’s often
+                                                            easier to connect in writing and to read more into the written word than the
+                                                            spoken word. This
+                                                            can mean you rush into things, and relationships may move quicker than you
+                                                            expect.
+                
+                                                            "Always bear in mind that the other person is a stranger. Take your time to
+                                                            really get to know someone,
+                                                            and ensure he or she is who they say they are.”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel4" id="four"
+                                                            class="collapsed">
+                                                            Ask a friend for advice and their opinion<i id="btnfour"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel4" class="panel-collapse collapse in" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            “If you even get a gut feeling that something is not quite right, ask a
+                                                            friend for advice and
+                                                            their opinion. Sometimes our mind can trick us into thinking we've met the
+                                                            perfect match when
+                                                            in fact we are being conned by a scam-artist.”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel5" id="six"
+                                                            class="">
+                                                            Always meet in a public place<i id="btn6" class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel5" class="panel-collapse collapse in" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            “Anyone you meet online is a stranger, and you need to remember that, even
+                                                            if you’re on a
+                                                            second or third date."
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel6" id="seven"
+                                                            class="">
+                                                            Communicate with a friend<i id="btnseven" class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel6" aria-hidden="false" class="panel-collapse collapse in">
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            "Let someone else know where you are, and check back in with that person at
+                                                            the end of the date."
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel7" id="eight"
+                                                            class="">
+                                                            Avoid drinking too much on a first date.<i id="btn8"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel7" aria-hidden="false" class="panel-collapse collapse in">
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            “While Dutch courage can be enticing, you don’t want to lower your
+                                                            inhibitions, and end up
+                                                            doing something you regret."
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel8" id="nine"
+                                                            class="">
+                                                            Don’t go home with them on your first date<i id="btnnine"
+                                                                class="fas fa-caret-down"></i> </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel8" aria-hidden="false" class="panel-collapse collapse in">
+                                                    
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            "Even if you’re getting on really well with your date, don’t go home with
+                                                            him or her on the first
+                                                            night. And remember that bringing someone home is no safer than going to
+                                                            someone else’s house. You’re
+                                                            still inviting a stranger into your home."
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#panel9" id="ten"
+                                                            class="">
+                                                            Don’t be afraid to just get up and leave<i id="btnten"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="panel9" aria-hidden="false" class="panel-collapse collapse in">
+                                                   
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            “Online dating can be a great way to meet people you would never had chance
+                                                            to meet
+                                                            otherwise, but there are nasty people in the world, and online dating is
+                                                            just four of many
+                                                            ways you may come across those nasty people.
+                
+                                                            "Always keep your wits about you, and if you ever feel uncomfortable you
+                                                            should simply leave. Your
+                                                            safety is of paramount importance.”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p id="aboveimg" class="my-4 text-center ">For help avoiding romance scams, check out
+                                                    some advice from the U.S Federal Trade
+                                                    Commission on the FTC website or in the video below.</p>
+                                                <p> </p>
+                                                <div class="row">
+                                                    <div class="col-9 mx-auto d-flex justify-content-center">
+                                                        <a href="https://youtu.be/jlxWxH0mgU8" target="_blank"
+                                                            class="d-flex justify-content-center" data-toggle="tooltip"
+                                                            data-placement="bottom" title="click to view the video">
+                                                            <img id="youtubeimage"
+                                                                src="https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2016/04/online-dating.jpg"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="container border pl-0 pl-3 mx-auto shadow-lg mt-5" id="container1">  
+                    <div class="col-lg-12 mt-5">
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center pl-0 pl-md-4 pt-3 display-4">
+                                            Help Center
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mx-auto">
+                                    <div class="row">
+                                        <p class="intro text-center mt-4">
+                                            Remember even if you follow these tips, no method of risk reduction is perfect. If you
+                                            have a negative
+                                            experience, please know that it is not your fault and help is available
+                                            If you feel you are in immediate danger or need emergency assistance
+                                        </p>
+                                    </div>
+                                    <div class="dropdown-divider">
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-12 mx-auto pl-0 pl-md-3">
+                                    <h3 class="title-block second-child text-center my-3">Resources for Help, Support, or Advice</h3>
+                                    <ul class="pl-3 list-unstyled" style="font-size: 1.2rem;">
+                                        <p class="h1">
+                                            India
+                                        </p>
+                                        <li class="org-res">
+                                            National Suicide Prevention Lifeline
+                                        </li>
+                                        <li class=" list-unstyled mb-4 mt-2">
+                                            <p>
+                                                Call 1-800-273-8255 | <a target="_blank"
+                                                    href="https://suicidepreventionlifeline.org/chat/">https://suicidepreventionlifeline.org/chat/</a>
+                                            </p>
+                                        </li>
+                                        <li class="org-res">
+                                            National Women Helpline
+                                        </li>
+                                        <li class="  list-unstyled  mb-4 mt-2">
+                                            <p>
+                                                Call 1091 or 181
+                                            </p>
+                                        </li>
+                                        <li class="org-res">
+                                            National Commission for Women
+                                        </li>
+                                        <li class="  mb-4 mt-2  list-unstyled">
+                                            <p>
+                                                Call 011-26942369
+                                            </p>
+                                        </li>
+                                        <li class="org-res">
+                                            Cybercrime Reporting Portal
+                                        </li>
+                                        <div class="row text-center d-flex justify-content-sm-center">
+                                            <li class="  mb-4 mt-2 list-unstyled">
+                                                <div class="col-12">
+                                                    <p>
+                                                        <a class="col-10" target="_blank"
+                                                            href="https://cybercrime.gov.in/Webform/Crime_OnlineSafetyTips.aspx">https://cybercrime.gov.in/Webform/Crime_OnlineSafetyTips.aspx</a>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </div>
+                                        <li class="org-res">
+                                            Family Planning Association of India
+                                        </li>
+                                        <li class="  mb-4 mt-2 list-unstyled">
+                                            <p>
+                                                (91) 22 4086 3101 / 2202 9080 / 2202 5174
+                                            </p>
+                                        </li>
+                                        <li class="org-res">
+                                            LGBT National Help Center
+                                        </li>
+                                        <li class="  mb-4 mt-2 list-unstyled">
+                                            <p>
+                                                1-888-843-4564 | <a href="https://www.glbtnationalhelpcenter.org"
+                                                    target="_blank">https://www.glbtnationalhelpcenter.org</a></p>
+                                        </li>
+                                        <div class="dropdown-divider"></div>
+                
+                                        <p class="h1">
+                                            International
+                                        </p>
+                                        <li class="org-res">
+                                            INHOPE (To Report Illegal Online Content)
+                                        </li>
+                                        <li class="  mb-4 mt-2 list-unstyled">
+                                            <p>
+                                                +31 20 257 1100
+                                            </p>
+                
+                                        </li>
+                                        <li class="org-res">
+                                            Global Modern Slavery Directory (Anti-Trafficking Service Provider and Hotline Directory)
+                                        </li>
+                                        <li class="  mb-4 mt-2 list-unstyled">
+                                            <p>
+                                                <a target="_blank"
+                                                    href="https://www.globalmodernslavery.org/">https://www.globalmodernslavery.org/</a>
+                                            </p>
+                                        </li>
+                                        <li class="org-res">
+                                            Now Matters Now Crisis Lines
+                                        </li>
+                                        <li class="  mb-4 mt-2 list-unstyled">
+                                            <p>
+                                                <a target="_blank"
+                                                    href="https://www.nowmattersnow.org/help-line">https://www.nowmattersnow.org/help-line</a>
+                                            </p>
+                                        </li>
+                
+                                    </ul>
+                
+                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="container border shadow-lg my-5 px-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12 text-center pl-4 pt-5 display-4">
+                                    Support Center
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-5">
+                            <div class="container bootstrap snippet">
+                                <div class="row">
+                                    <div class="col-lg-10 col-sm-8 mx-auto">
+                                        <h3 class="title-block second-child text-center my-3">Frequently Asked Questions</h3>
+                                        <div class="panel-group pb-5" id="faqList">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#questionOne"
+                                                            id="sixteen" class="collapsed">
+                                                            How is Percentage Match Calculated ? <i id="btnsixteen"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="questionOne" class="panel-collapse collapse" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">We at Tango calculate Percentage Match based on certain
+                                                            Preferences or Choices selected by the user during the Account creation.We
+                                                            set a Priority order based on inputs given by the user.Matching is majorly
+                                                            based on Age, City, Gender.In no way we imply that the highest Percentage
+                                                            Match is the Ultimate Match for the user.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#questionTwo"
+                                                            id="fifteen" class="collapsed">
+                                                            How to upload Multiple Images for Profile Pictures ?<i id="btnfifteen"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="questionTwo" class="panel-collapse collapse">
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">To upload multiple images, Hold Ctrl and click on all the
+                                                            images to be uploaded. </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" href="#questionThree"
+                                                            id="fourteen" class="collapsed">
+                                                            How do I become eligible to chat with someone ?<i id="btnfourteen"
+                                                                class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="questionThree" class="panel-collapse collapse" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">Two users can chat only when both have been liked by each
+                                                            other.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" id="thirteen"
+                                                            href="#collapseFour" class="">
+                                                            How can I update the Contact No. with which I have registered ?<i
+                                                                id="btnthirteen" class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseFour" class="panel-collapse collapse in" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">We are sorry to say that once registered with a Contact No.
+                                                            you cannot update or change it.To register with a different Contact No. you
+                                                            will have to create a new Account. </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" id="twelve"
+                                                            href="#collapseFive" class="">
+                                                            How can I Report someone ?<i id="btntwelve" class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseFive" class="panel-collapse collapse in" >
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">You can report them to us by mailing us at
+                                                            <strong>Tangocorp@gmail.com</strong> with the offence. We will only take
+                                                            action if we find your Report to be valid.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title p-3 border rounded">
+                                                        <a data-toggle="collapse" data-parent="#faqList" id="eleven" href="#collapseSix"
+                                                            class="">
+                                                            How to Contact Us ?<i id="btneleven" class="fas fa-caret-down"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseSix" aria-hidden="false" class="panel-collapse collapse in">
+                                                    <div class="panel-body border p-3">
+                                                        <p class="p-0 m-0">
+                                                            You can Contact us by mailing your queries at
+                                                            <strong>Tangocorp@gmail.com</strong>.We will try to respond to your
+                                                            queries at the earliest.Please coopearate.Any inconvenience caused is
+                                                            regretted.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="/scripts/safety.js"></script>
+    <%- include("../partials/footer") %>

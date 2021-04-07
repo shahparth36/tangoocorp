@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <title><%= currentUser.username %> | Tango | Explore</title>
+    <link rel="stylesheet" href="stylesheet/explore.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar and sidebar start -->
+
+    <input type="checkbox" id="check">
+    <nav id="myNav" class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+                width="42" height="42" class="d-inline-block align-top navimg" alt="">
+            <span id="myBrand">Tango</span>
+        </a>
+    </nav>
+
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="<%= currentUser.image %>" class="profile_image" alt="">
+            <h4><%= currentUser.fullName %></h4>
+            <form id="bottom" action="/explore" method="GET" class="form-inline">
+                <input id="myInput" name="fullName" class="form-control" type="search" placeholder="Search By Name"
+                    aria-label="Search">
+                <button type="submit" class="btn btn-sm btn-outline-primary rounded-0 mb-4">Search</button>
+            </form>
+        </center>
+        <div class="scrollable">
+            <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </div>
+    </div>
+
+    <!-- Navbar and sidebar end -->
+
+    <div class="content container-fluid pr-0">
+        <div class="container pt-5">
+            <% if(error && error.length>0){ %>
+            <div class="row d-flex justify-content-between m-2">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
+                    <%= error %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <% } %>
+            <% if(success && success.length>0){ %>
+            <div class="row d-flex justify-content-between m-2">
+                <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
+                    <%= success %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <% } %>
+            <div class="jumbotron text-center">
+                <h1 class="display-3 explore">Explore <img class="ml-2 mb-3"
+                        src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879082/icons8-two-hearts-96_pqquy4.png" />
+                </h1>
+                <p class="lead"></p>
+                <hr class="my-4">
+                <p></p>
+                <button type="button" class="btn rounded-0" data-toggle="modal" data-target="#exampleModal">
+                    Search by Filters
+                </button>
+            </div>
+            <form action="/explore" method="GET">
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-center">
+                                    <h5 class="modal-title " id="exampleModalLabel">Filters <i
+                                            class="fas fa-filter"></i></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row justify-content-around">
+                                        <div class="col-12 ">
+                                            <div class="collapse show" id="collapseExample">
+                                                <div class="accordion" id="accordionExample">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingTwo">
+                                                            <h2 class="mb-0">
+                                                                <button id="myclass1"
+                                                                    class="btn btn-link filter myclass card-link text-dark btn-outline-light btn-block text-center collapsed text-decoration-none"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapseOne" aria-expanded="false"
+                                                                    aria-controls="collapseOne">
+                                                                    Filter by Username<i
+                                                                        class="fas fa-chevron-down ml-2" id="iTag1"></i>
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                                        data-parent="#accordionExample">
+                                                        <div class="row">
+                                                            <div class="card-body col-md-10 mgclass">
+                                                                <div class="form-group justify-content-center">
+                                                                    <input id="text" type="text" name="username"
+                                                                        placeholder="Filter by username"
+                                                                        class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingTwo">
+                                                        <h2 class="mb-0">
+                                                            <button id="myclass2"
+                                                                class="btn btn-link filter myclass card-link text-dark btn-outline-light btn-block text-center collapsed text-decoration-none"
+                                                                type="button" data-toggle="collapse"
+                                                                data-target="#collapseTwo" aria-expanded="false"
+                                                                aria-controls="collapseTwo">
+                                                                Filter by Gender<i class="fas fa-chevron-down ml-2"
+                                                                    id="iTag2"></i>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                                        data-parent="#accordionExample">
+                                                        <div class="row justify-content-center">
+                                                            <div class="card-body col-md-10 mx-auto">
+                                                                <div class="form-group justify-content-center ">
+                                                                    <select name="gender" id="text"
+                                                                        class="form-control">
+                                                                        <option selected value="">Select Gender</option>
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                        <option value="Others">Others</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingThree">
+                                                        <h2 class="mb-0">
+                                                            <button id="myclass3"
+                                                                class=" btn btn-link filter myclass card-link text-dark btn-outline-light btn-block text-center collapsed text-decoration-none"
+                                                                type="button" data-toggle="collapse"
+                                                                data-target="#collapseThree" aria-expanded="false"
+                                                                aria-controls="collapseThree">
+                                                                Filter by Sexuality<i class="fas fa-chevron-down ml-2"
+                                                                    id="iTag3"></i>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseThree" class="collapse"
+                                                        aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                        <div class="row justify-content-center">
+                                                            <div class="card-body col-md-10 mx-auto">
+                                                                <div class="form-group justify-content-center">
+                                                                    <select name="sexuality" type="text" id="text"
+                                                                        class="form-control">
+                                                                        <option selected value="">Select Your Preference
+                                                                        </option>
+                                                                        <option value="Straight">Straight</option>
+                                                                        <option value="Homosexual">Homosexual</option>
+                                                                        <option value="Bisexual">Bisexual</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingFour">
+                                                        <h2 class="mb-0">
+                                                            <button id="myclass4"
+                                                                class=" btn btn-link filter myclass card-link text-dark btn-outline-light btn-block text-center collapsed text-decoration-none"
+                                                                type="button" data-toggle="collapse"
+                                                                data-target="#collapseFour" aria-expanded="false"
+                                                                aria-controls="collapseFour">
+                                                                Filter by City<i class="fas fa-chevron-down ml-2"
+                                                                    id="iTag4"></i>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseFour" class="collapse"
+                                                        aria-labelledby="headingFour" data-parent="#accordionExample">
+                                                        <div class="row justify-content-center">
+                                                            <div class="card-body col-md-10 mx-auto">
+                                                                <div class="form-group justify-content-center">
+                                                                    <select name="city" type="text"
+                                                                        class="form-control">
+                                                                        <option selected disabled value="">Select City
+                                                                        </option>
+                                                                        <% for (var i = 0; i < indianCities.length; i++) { %>
+                                                                        <option><%= indianCities[i]%></option>
+                                                                        <% } %>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingFive">
+                                                        <h2 class="mb-0">
+                                                            <button id="myclass5"
+                                                                class=" btn btn-link filter myclass card-link text-dark btn-outline-light btn-block text-center collapsed text-decoration-none"
+                                                                type="button" data-toggle="collapse"
+                                                                data-target="#collapseFive" aria-expanded="false"
+                                                                aria-controls="collapseFive">
+                                                                Filter by Age<i class="fas fa-chevron-down ml-2"
+                                                                    id="iTag5"></i>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseFive" class="collapse"
+                                                        aria-labelledby="headingFive" data-parent="#accordionExample">
+                                                        <div class="row justify-content-center">
+                                                            <div class="card-body col-md-10 mx-auto">
+                                                                <div class="form-group justify-content-center">
+                                                                    <div
+                                                                        class="rangeslider justify-content-center hello">
+                                                                        <input class="min" name="age" type="range"
+                                                                            min="16" max="75" value="16" />
+                                                                        <input class="max" name="age" type="range"
+                                                                            min="16" max="75" value="75" />
+                                                                        <span class="range_min light left"
+                                                                            style="margin-left: 65px; ">16</span>
+                                                                        <span class="range_max light right"
+                                                                            style="margin-left: 75px; margin-right: -70px;">75</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-outline-success rounded-0">Apply filters &nbsp;
+                                        <i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <a href="explore" class="btn btn-outline-danger rounded-0">Clear filters &nbsp; <i
+                                            class="fa fa-trash" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </form>
+        <div class="container1" id="cont">
+            <div class="row justify-content-around">
+                <% foundUser.forEach(function(User){ %>
+                <div class="col-12 col-md-4">
+                    <a href="/profile/<%= User._id %>" class="cona">
+                        <div class="cards">
+                            <div class="face face1">
+                                <div id="hello" class="content1">
+                                    <div class='wrapper_work'>
+                                        <img src='<%= User.image %>' />
+                                        <div class='description'>
+                                            <p class='description_content'><%= User.firstName %> <%= User.lastName %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- <img src="<%= User.image %>" alt="" width="300px" height="219px">
+                                    <div>
+                                        <p class="description_content"><%= User.firstName %> <%= User.lastName %></p>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="face face2">
+                                <div class="row">
+                                    <div class="col-12 col-md-12">
+                                        <p class="pUsername"><%= User.age %> &nbsp;<span>&bull;</span>
+                                            <%= User.username %> <span>&bull;</span> <%= User.city %></p>
+                                        <p>
+                                            <% if (User.bio.length <= 150 ) { %>
+                                        <p><%= User.bio %> </p>
+                                        <% } else { %>
+                                        <p><%= User.bio.substring(0,250) %>...</p>
+                                        <% } %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="container">
+        <nav aria-label="Page navigation">
+            <% if (pages && pages > 0) { %>
+            <ul class="pagination justify-content-center">
+                <% if (current == 1) { %>
+                <li class="page-item disabled"><a class="page-link">First</a></li>
+                <% } else { %>
+                <li><a class="page-link" href="/explore">First</a></li>
+                <% } %>
+
+                <% if (current == 1) { %>
+                <li class="page-item disabled"><a class="page-link">«</a></li>
+                <% } else { %>
+                <li><a class="page-link" href="/explore?page=<%= Number(current) - 1 %>">«</a></li>
+                <% } %>
+
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                <li class="page-item disabled"><a class="page-link">...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                <% if (i == current) { %>
+                <li class="active"><a class="page-link"><%= i %></a></li>
+                <% } else { %>
+                <li><a class="page-link" href="/explore?page=<%= i %>"><%= i %></a></li>
+                <% } %>
+                <% if (i == Number(current) + 4 && i < pages) { %>
+                <li class="page-item disabled"><a class="page-link">...</a></li>
+                <% } %>
+                <% } %>
+
+                <% if (current == pages) { %>
+                <li class="page-item disabled"><a class="page-link">»</a></li>
+                <% } else { %>
+                <li><a class="page-link" href="/explore?page=<%= Number(current) + 1 %>">»</a></li>
+                <% } %>
+
+                <% if (current == pages) { %>
+                <li class="page-item disabled"><a class="page-link">Last</a></li>
+                <% } else { %>
+                <li><a class="page-link" href="/explore?page=<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+            <% } %>
+        </nav>
+    </div>
+    <div class="container-fluid pr-0 pl-0">
+        <footer class="footer">
+            <div class="container-fluid footer-content">
+                <div class="row text-center">
+                    <div class=" col-3 ml-5 pl-5">
+                        <h5>CONDITIONS</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a href="/privacy" class="footer-content">Privacy</a></li>
+                            <li><a href="/termsandconditions" class="footer-content">Terms</a></li>
+                            <li><a href="/guidelines" class="footer-content">Community Guidelines</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 ml-5 pl-5">
+                        <h5>FOLLOW</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a href="https://www.instagram.com" class="footer-content">Instagram</a>
+                            </li>
+                            <li><a href="https://www.facebook.com" class="footer-content">Facebook</a>
+                            </li>
+                            <li><a href="https://twitter.com" class="footer-content">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 ml-5 pl-5">
+                        <h5>CONTACT</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a href="/support" class="footer-content">Support</a></li>
+                            <li><a href="/safety" class="footer-content">Safety Tips</a></li>
+                            <li><a href="/about" class="footer-content">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="scripts/explore.js"></script>
+</body>
+
+</html>

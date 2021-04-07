@@ -1,0 +1,515 @@
+.myclass {
+    position: relative;
+    display: flex;
+}
+
+.myclass li {
+    position: relative;
+    list-style: none;
+}
+
+.myclass li a {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    text-decoration: none;
+    font-size: 50px;
+    border-radius: 50%;
+    color: #e2e2e2; 
+    transition: 0.5s;
+}
+.myclass a:hover {
+    text-decoration: none;
+    color: #999; 
+    transform: translateY(-20px);
+}
+.myclass a .fab {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+.myclass li a:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.myclass li:nth-child(1) a:before {
+    background: #c32aa3;
+}
+
+.myclass li:nth-child(2) a:before {
+    background: #1877f2;
+}
+
+.myclass li:nth-child(3) a:before {
+    background: #1da1f2;
+}
+
+.pTag {
+  display: none;
+}
+
+#div1 {
+  margin-top: 50px;
+}
+
+#myRow1 .good {
+  margin-left: 25px;
+}
+
+.hello1 img {
+  border-radius: 50%!important;
+  width: 330px;
+  height: 330px;
+}
+
+.footer-content {
+    color: white;
+}
+
+.footer {
+    margin-left: 50px;
+    background: black;
+    padding: 50px 0px; 
+    margin-top: 100px;
+}
+
+.footer a:hover {
+    color: #19B3D3;
+}
+
+
+/* Sidebar and navbar styling start */
+
+.sidebar {
+  	background: black;
+  	padding-top: 100px;
+  	position: fixed;
+  	left: 0;
+  	width: 60px;
+  	height: 100%;
+  	transition: 100%;
+  	transition-property: right;
+}
+
+#check:checked ~ .sidebar {
+  	left: 0px;
+  	width: 250px;
+}
+
+#check:checked ~ .sidebar center {
+  	left: 0px;
+  	width: 250px;
+  	display: block;
+}
+
+#check:checked ~ .sidebar a span{
+  	display: inline-block;
+}
+
+#check:checked ~ .sidebar a {
+  	font-size: 17px;
+  	padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  	margin-left: 250px;
+}
+#check:checked ~ .sidebar .scrollable {
+  	margin-top: 0;
+}
+
+#check:checked ~ footer {
+    margin-left: 150px;
+}
+
+.sidebar .scrollable {
+  	margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  	width: 100px;
+  	height:  100px;
+  	border-radius: 100px;
+  	margin-bottom: 10px;
+}
+  
+.sidebar h4 {
+  	color: white;
+  	margin-top: 0;
+  	margin-bottom: 40px;
+}
+
+.sidebar center {
+  	display: none;
+}
+
+.sidebar span {
+  	display: none;
+}
+
+.sidebar a {
+  	color: #fff;
+  	display: block;
+  	width: 100%;
+  	line-height: 50px;
+  	text-decoration: none;
+  	padding-left: 20px;
+  	box-sizing: border-box;
+  	transition: 0.5s;
+  	transition-property: background;
+}
+  
+.sidebar a:hover {
+    text-decoration: none;
+    color: white;
+    background: #19B3D3;
+}
+
+.sidebar i {
+    padding-right: 10px;
+}
+
+.myTag {
+  display: none;
+}
+
+label #sidebar_btn {
+    z-index: 1;
+    padding-top: 1px;
+    color: white;
+    position: fixed;
+    cursor: pointer;
+    left: 17px;
+    top: 21px;
+    font-size: 20px;
+    transition: 0.5s;
+    transition-property: color;
+}  
+
+label #sidebar_btn:hover {
+    z-index: 1;
+    color: #19B3D3;
+}
+
+.wcolor {
+  color: white;
+}
+
+.content {  
+    width: 1200px;
+    padding-top: 100px;
+    margin-left: 200px;
+    height: 100%;
+    transition: 0.5s;
+}
+
+#check {
+    display: none;
+}
+  
+#myBrand:hover {
+    color: #19B3D3;
+}
+
+#font {
+    font-family: 'Pacifico', cursive;
+}
+
+#myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
+}
+  
+#myNav {
+  padding-top: 18px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}  
+
+#bottom {
+    display: block;
+}
+
+#myInput {
+    width: 78%;
+    margin-bottom: 10px;
+}
+
+form .filter_btn {
+    margin-bottom: 10%;
+}
+
+.home{
+    font-family: 'Playball', cursive;
+}
+
+/* Navbar and sidebar styling end */
+
+.navimg {
+  margin-left: 40px; 
+  margin-right: 5px;
+}
+
+.ebut {
+  float: right; 
+  width: 8.5rem;
+}
+
+.ulbut {
+  float: right; 
+  width: 6.5rem;
+}
+
+.lbut {
+  float: right; 
+  width: 5.5rem;
+}
+
+.rclass {
+  font-size: 15px;
+}
+
+.bul {
+  content: \2022; 
+  font-size: 22px;
+}
+
+.iconn {
+  font-size: 1.5rem;
+}
+
+.aicon {
+  color: black;
+}
+
+.hcard {
+  max-width: 22rem;
+}
+
+.qclass {
+  padding-left: 50px;
+}
+
+.height2class {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.heightclass {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.hello1 img{
+  margin-left: 20px;
+}
+
+@media(max-width:1367px){
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
+  .container{
+      /* width: 1100px; */
+      width: 87%;
+      margin-left: 20px;
+  }
+}
+  
+  /* Styling for mobile size */
+  
+  @media (max-width: 1040px) {
+
+  .navimg {
+      margin-left: 30px;
+  }
+
+  #myRow1 .myclass {
+    padding-left: 0px;
+  }
+
+  .ebut {
+    display: none;
+  }
+
+  .myTag {
+    display: block;
+  }
+
+  .myTag .embut {
+    margin-left: 50px;
+    display: block;
+  }
+
+  .height2class {
+    margin-bottom: 10px;
+  }
+
+  .heightclass {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .bcclass {
+    padding-right: 0px;
+  }
+
+  .sidebar {
+    display: none;
+    width: 0px;
+  }
+
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+    
+    #myNav {
+      padding-top: 0px;
+      height: 70px;
+    }
+  
+    .navbar-brand {
+      padding-top: 0.8525rem;
+    }
+    
+    #myInput {
+      width: 78%;
+      margin-bottom: 10px;
+    }
+    
+    #myForm {
+      display: none;
+    }
+    
+    #bottom {
+      display: block;
+    }
+    
+    label #sidebar_btn {
+      left: 14px;
+    }
+    
+    .but {
+      display: none;
+    }
+
+    .pTag {
+      margin-left: 50px;
+      display: block;
+    }
+
+    .ulmbut {
+      margin-bottom: 10px;
+      width: 50%;
+      display: inline-block;
+    }
+
+    .ulmsbut {
+      margin-bottom: 10px;
+      width: 50%;
+      display: inline-block;
+    }
+
+    .lmbut {
+      width: 50%;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .lmsbut {
+      width: 50%;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    
+    #check:checked ~ .content {
+      padding-left: 300px;
+    }
+
+    #div1 {
+      margin-top: 0px;
+    }
+
+    .good {
+      margin-left: 30px;
+    }
+
+    .content{
+      margin-left: 20px;
+      width:350px;
+    }
+
+    .content .container{
+      width: 300px;
+    }
+
+    .qclass {
+      padding-left: 0px;
+    }
+    .hello1 img{
+      margin-left: 15px;
+      margin-right: -20px;
+      height: 220px;
+      width: 240px;
+      
+    }
+
+    .footer{
+      margin-left: -50px;
+    }
+
+    #name{
+      margin-left: -20px;
+      text-align: left;
+    }
+
+    #bio{
+      margin-right: 20px;
+      margin-left: -30px;
+      text-align: left;
+    }
+}

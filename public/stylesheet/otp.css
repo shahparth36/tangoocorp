@@ -1,0 +1,90 @@
+body{
+    background-color: black;
+    background: url(https://www.onlineflowersandcakes.com/wp-content/uploads/2019/11/d5080d95c3bf9fb9ac4de5b6b5e875d3.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.card{
+    border-radius: 5px;
+    margin-top: 8%;
+    margin-left: 30%; 
+    padding: 0; 
+    width: 425px; 
+    height: 345px; 
+    z-index: 1; 
+    padding-top: 20px;
+}
+
+hr{
+  background-color: black; 
+  margin-top: 10px; 
+  margin-bottom: 35px; 
+  margin-left: 50px; 
+  margin-right: 50px;
+}
+
+.hello{
+  margin-left: 35px; 
+  margin-right: 35px;
+}
+
+.navbar-brand{
+    color: white;
+    font-size: 2em;
+    font-family: 'Pacifico', cursive;
+    transition: 0.3s;
+    transition-property: color;
+
+}
+
+.navbar-brand:hover {
+    color: #19B3D3
+}
+
+.navbar{
+    padding: 2px 16px;
+}
+
+.navbar-nav{
+    font-size: 1.1em;
+}
+
+#brand{
+  background-color: black; 
+  z-index: 1; 
+
+}
+
+@media (max-width: 1040px) {
+
+  .card{
+    margin-top: 20%;
+  }
+
+  nav {
+    position: fixed;
+    padding-top: 0px;
+  }
+
+  .navbar-brand {
+    padding-top: 0.6525rem;
+  }
+
+  .navbar.mynav{
+    width: 110%;
+  }
+
+  .navbar{
+    width:600px;
+  }
+
+  .mycon {
+    margin-top: 150px;
+    margin-left: -14px;
+  }
+  .navbar-toggler{
+    margin-right: 40px;
+  }
+}

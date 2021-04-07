@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+    type="image/x-icon">
+  <title>Tango | Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheet/login.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark mynav fixed-top">
+    <a class=" navbar-brand" href="/">
+      <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        width="42" height="42" class="d-inline-block align-top imgclass" alt="">
+      <span id="myBrand">Tango</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+      <ul class="navbar-nav ml-auto">
+        <a href="/register" class=" nav-link active mr-3 wcolor"><i class="fas fa-user-plus mr-2"
+            aria-hidden="true"></i> Register</a>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <% if(error && error.length>0){ %>
+    <div class="row d-flex justify-content-between m-2">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
+        <%= error %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <% } %>
+    <% if(success && success.length>0){ %>
+    <div class="row d-flex justify-content-between m-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
+        <%= success %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <% } %>
+    <!-- </div> -->
+
+    <div class="mycon">
+      <div id="myCard1" class="card px-3 shadow-lg">
+        <form action="/login" method="POST">
+          <h3 id="signIn" class="card-title text-center mb-4 py-3 display-4">Sign In</h3>
+          <div class="row justify-content-center">
+            <div class="col">
+              <div class="input-group flex no wrap ">
+                <input class="username" name="username" required type="text" class="form-control"
+                  placeholder="Username, Email or Contact No">
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col my-3">
+              <div class="input-group flex no wrap">
+                <input class="pass" required id="password-field" type="password" name="password" class="form-control"
+                  placeholder="Password">
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center shoclass">
+            <p>
+              <span>
+                Forgot Password?
+                <a href="/forgot">Click Here</a>
+              </span>
+            </p>
+          </div>
+          <div class="row justify-content-center ">
+            <p>
+              <span>
+                Don't Have an Account yet?
+                <a href="/register">Sign Up</a>
+              </span>
+            </p>
+          </div>
+          <div class="row justify-content-center">
+            <p>
+              <button type="submit" class="submit" text-align="center">Login
+                <i class="fas fa-sign-in-alt ml-2" aria-hidden="true"></i>
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="scripts/login.js"></script>
+</body>
+
+</html>

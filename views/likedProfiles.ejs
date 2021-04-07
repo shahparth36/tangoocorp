@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <title><%= currentUser.username %> | Tango | Like</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheet/likedProfiles.css">
+</head>
+<body>
+      <!-- Navbar and sidebar start -->
+
+      <input type="checkbox" id = "check">
+        <nav id="myNav" class="navbar navbar-expand-lg fixed-top">
+            <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+                <label for="check">
+                    <i class="fas fa-bars" id="sidebar_btn"></i>
+                </label>
+                <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+                    width="42" height="42" class="d-inline-block align-top navimg" alt="">
+                <span id="myBrand">Tango</span>
+            </a>
+        </nav>
+      
+      <div class="sidebar">
+          <center class="mr-5">
+            <img src="<%= currentUser.image %>"
+            class="profile_image" alt="">
+            <h4><%= currentUser.fullName %></h4>
+          </center>
+          <div class="scrollable">
+              <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+              <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+              <a href="#"><i class="fas fa-heart"></i><span>Likes</span></a>
+              <a href="/savedProfiles/<%= currentUser._id %>" ><i class="fas fa-bookmark"></i><span>Saved</span></a>
+              <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+              <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+          </div>
+      </div>
+  
+      <!-- Navbar and sidebar end -->
+
+    <div class="content">
+        <div class="container">
+        <div class="jumbotron text-center pt-4 py-3">                  
+            <h1 class="display-3 saved">Likes <img class="ml-2 mb-3" src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879082/icons8-two-hearts-96_pqquy4.png"/></h1>
+            <hr class="my-4"> 
+        </div> 
+            <ul class="nav justify-content-center nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                        aria-selected="true">Liked By</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"  id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                        aria-selected="false">Liked</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <!-- Liked By content -->
+                    <section id="team" >
+                        <div class="container my-3 text-center container1">
+                            <div class="row mb-5">
+                                <div class="col my-3">
+                                    <h4 class="mb-5 pb-5 display-5 like"> Users that have Liked Your Profile</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-2">
+                                <% arr.forEach((User)=> { %>
+                                    <div class="col-lg-4 col-md-6">
+                                        <a href="/profile/<%= User._id %>">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <img src="<%= User.image %>"
+                                                        alt="" class="img-fluid rounded-circle mb-3" >
+                                                    <h3 class="card-title"><%= User.fullName %> </h3>
+                                                    <h5 class="py-1 "><%= User.age %> &bull;  <%= User.username %> &bull;  <%= User.city %></h5>
+                                                    <p>
+                                                        <% if (User.bio.length <= 150 ) { %>
+                                                            <p ><%= User.bio %> </p>
+                                                        <% } else { %>
+                                                            <p ><%= User.bio.substring(0,250) %>...</p>
+                                                        <% } %>
+                                                    </p>
+                                                    
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <% if (User.insta_url) { %>
+                                                            <div class="px-4">
+                                                                <a href="<%= User.insta_url %>">
+                                                                    <i class="fab fa-instagram"></i>
+                                                                </a>
+                                                            </div>
+                                                        <% } %>
+                                                        <% if (User.facebook_url) { %>
+                                                            <div     class="px-4">
+                                                                <a href="<%= User.facebook_url %>">
+                                                                    <i class="fab fa-facebook"></i>
+                                                                </a>
+                                                            </div>
+                                                        <% } %>
+                                                        <% if (User.twitter_url) { %>
+                                                            <div class="px-4">
+                                                                <a href="<%= User.twitter_url %>">
+                                                                    <i class="fab fa-twitter"></i>
+                                                                </a>
+                                                            </div>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </section> 
+                    
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <!-- Liked content -->
+                    <section id="team">
+                        <div class="container py-1 my-3 text-center container1" >
+                            <div class="row mb-5 title">
+                                <div class="col my-5">
+                                    <h4 class="mb-5 pb-5 display-5 like">Users that you have Liked</h4>
+                                </div>
+                            </div>     
+                            <div class="row mt-2">
+                                <% user.likedUser.forEach(function(User){ %>
+                                    <div class="col-lg-4 col-md-6">
+                                        <a href="/profile/<%= User._id %>">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <img src="<%= User.image %>"
+                                                        alt="" class="img-fluid rounded-circle mb-3" >
+                                                    <h3 class="card-title"><%= User.fullName %> </h3>
+                                                    <h5 class="py-1 "><%= User.age %> &bull;  <%= User.username %> &bull;  <%= User.city %></h5>
+                                                    <p>
+                                                        <% if (User.bio.length <= 150 ) { %>
+                                                            <p ><%= User.bio %> </p>
+                                                        <% } else { %>
+                                                            <p ><%= User.bio.substring(0,250) %>...</p>
+                                                        <% } %>
+                                                    </p>
+                                                    
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <% if (User.insta_url) { %>
+                                                            <div class="px-4"> 
+                                                                <a href="<%= User.insta_url %>">
+                                                                    <i class="fab fa-instagram"></i>
+                                                                </a>
+                                                            </div>
+                                                        <% } %>
+                                                        <% if (User.facebook_url) { %>
+                                                            <div     class="px-4">
+                                                                <a href="<%= User.facebook_url %>">
+                                                                    <i class="fab fa-facebook"></i>
+                                                                </a>
+                                                            </div>
+                                                        <% } %>
+                                                        <% if (User.twitter_url) { %>
+                                                            <div class="px-4">
+                                                                <a href="<%= User.twitter_url %>">
+                                                                    <i class="fab fa-twitter"></i>
+                                                                </a>
+                                                            </div>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>       
+        </div>
+    </div>
+
+
+      <%- include("../partials/footer") %>  

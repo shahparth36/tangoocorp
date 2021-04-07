@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playball+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/privacy.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Privacy Policy | Tango</title>
+</head>
+<body>
+     <!-- Navbar and sidebar start -->
+
+    <input type="checkbox" id="check">
+    <nav id="myNav" class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" width="42" height="42" class="d-inline-block align-top navImg" alt="">
+        <span id="myBrand">Tango</span>
+        </a>
+    </nav>
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="<%= currentUser.image %>"
+                class="profile_image" alt="">
+            <h4><%= currentUser.fullName %></h4>
+        </center>
+        <div class="scrollable">
+            <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </div>
+    </div>
+ 
+     <!-- Navbar and sidebar end -->
+
+    <div class="content my-5 py-5">
+        <div class = "container border shadow-lg px-5">
+            <h3 class = "mt-3 pl-3 pb-3 pt-3 display-3 text-center">Privacy Policy</h3>
+            <hr>
+            <ul class="pl-3">
+                <li>
+                    <p> 
+                        Your privacy is important to us. It is Tango's policy to respect your privacy regarding any information we may
+                        collect from you across our website, <a href="https://tangocorp.herokuapp.com">https://tangocorp.herokuapp.com</a>, and other sites we own and
+                        operate.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and
+                        lawful means, with your knowledge and consent. We also let you know why we're collecting it and how it will be
+                        used.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        We only retain collected information for as long as necessary to provide you with your requested service. What data
+                        we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized
+                        access, disclosure, copying, use or modification.</p>
+                </li>
+                <li>
+                    <p>
+                        We don't share any personally identifying information publicly or with third-parties, except when required to by
+                        law.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Our website may link to external sites that are not operated by us. Please be aware that we have no control over the
+                        content and practices of these sites, and cannot accept responsibility or liability for their respective privacy
+                        policies.</p>
+                </li>
+                <li>
+                    <p>
+                        You are free to refuse our request for your personal information, with the understanding that we may be unable to
+                        provide you with some of your desired services.</p>
+                </li>
+                <li>
+                    <p> 
+                        Your continued use of our website will be regarded as acceptance of our practices around privacy and personal
+                        information. If you have any questions about how we handle user data and personal information, feel free to contact
+                        us.</p>
+                </li>
+                <li>
+                    You choose to give us certain information when using our services. This includes:
+                    <li class = "ml-4 mt-3">
+                        <p>
+                            When you create an account, you provide us with at least your login credentials, as well as some basic details necessary
+                            for the service to work, such as your gender and date of birth.
+                        </p>
+                    </li>
+                     
+                    <li class = "ml-4 mt-3">
+                        <p>
+                            When you complete your profile, you can share with us additional information, such as details on your personality,
+                            lifestyle, interests and other details about you, as well as content such as photos and videos. To add certain content,
+                            like pictures or videos, you may allow us to access your camera or photo album. Some of the information you choose to
+                            provide us may be considered “special” or “sensitive” in certain jurisdictions, for example your racial or ethnic
+                            origins, sexual orientation and religious beliefs. By choosing to provide this information, you consent to our
+                            processing of that information.
+                        </p>
+                    </li>
+                     
+                    <li class = "ml-4 mt-3">
+                        <p>
+                            If you contact our customer care team, we collect the information you give us during the interaction. Sometimes, we
+                            monitor or record these interactions for training purposes and to ensure a high quality of service.
+                        </p>
+                    </li>
+                     
+                    <li class = "ml-4 mt-3">
+                        <p>
+                            If you ask us to communicate with or otherwise process information of other people (for example, if you ask us to send
+                            an email on your behalf to one of your friends), we collect the information about others that you give us in order to
+                            complete your request.
+                        </p>
+                    </li>
+                     
+                    <li class = "ml-4 mt-3">
+                        <p>
+                            Of course, we also process your chats with other users as well as the content you publish, as part of the operation of
+                            the services.
+                        </p>
+                    </li>
+                </li>
+                <li>
+                    <p>
+                        This policy is effective as of 10 August 2020.
+                    </p>
+                </li>
+            </ul>       
+        </div>
+    </div>
+
+    <%- include("../partials/footer") %>
+    
+    

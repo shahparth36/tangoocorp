@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=1280, initial-scale=1"> -->
+  <link rel="icon" href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+    type="image/x-icon">
+  <title><%= currentUser.username %> | Tango | Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheet/home.css">
+
+</head>
+
+<body>
+  <!-- Navbar and sidebar start -->
+
+  <input type="checkbox" id="check">
+  <nav id="myNav" class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        width="42" height="42" class="d-inline-block align-top imgclass" alt="">
+      <span id="myBrand">Tango</span>
+    </a>
+  </nav>
+  <div class="sidebar">
+    <center class="mr-5">
+      <img src="<%= currentUser.image %>" class="profile_image" alt="">
+      <h4><%= currentUser.fullName %></h4>
+    </center>
+    <div class="scrollable">
+      <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+      <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+      <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+      <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+      <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+      <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    </div>
+  </div>
+
+  <!-- Navbar and sidebar end -->
+
+  <!-- Rest of the content goes below the div with class content -->
+
+  <div class="content py-5">
+    <div class="container">
+      <% if(error && error.length>0){ %>
+      <div class="row d-flex justify-content-between m-2">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" >
+          <%= error %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <% } %>
+      <% if(success && success.length>0){ %>
+      <div class="row d-flex justify-content-between m-2">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" >
+          <%= success %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <% } %>
+      <!-- </div>
+    <div class="container" style="margin-top: 70px;"> -->
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron text-center py-5">
+            <h1 class="display-3 home ">Home <img class="ml-2 mb-3"
+                src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879082/icons8-two-hearts-96_pqquy4.png" />
+            </h1>
+            <!-- <p class="lead">Welcome to Tango</p> -->
+
+            <div class="main mx-auto mt-5">
+              <div class="social">
+                <a href="https://www.facebook.com/sharer.php?u=https://tangocorp.herokuapp.com" class="fab fa-facebook fa-2x"></a>
+                <a href="https://wa.me/?text=https://tangocorp.herokuapp.com" class="fab fa-whatsapp fa-2x"></a>
+                <a href="https://twitter.com/share?url=https://tangocorp.herokuapp.com" class="fab fa-twitter fa-2x"></a>
+                <div class="btn"><a href="">Share</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container"> -->
+      <!-- <div class="row text-center"> -->
+      <!-- <div class="col-12"> -->
+      <div id="carouselExampleFade" class="carousel slide carousel-fade mb-5" data-ride="carousel">
+        <div class="card">
+          <div class="col-12 col-lg-12 py-5 classs">
+            <div class="carousel-inner">
+              <% if (user.length === 0) { %>
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-12 wcolor">
+                    <p class="display-4">No Users Matched</p>
+                    <p class="my-4 lead">Don't feel low.Go checkout other Profiles at our Explore Page </p>
+                    <a href="/explore" class="btn btn-warning rounded-0">Go To Explore</a>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+              <% for(var i = 0; i < user.length; i++) { %>
+              <% if (i===0) { %>
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-md-5 col-12 text-start pmclass">
+                    <div class="img d-flex justify-content-start">
+                      <img src="<%= user[i].user.image %> " alt="..." class="d-block cimg">
+                    </div>
+                  </div>
+                  <div class="test col-lg-6 col-7 vnclass text-center">
+                    <h3 class="card-title wcolor"><%= user[i].user.fullName %></h3>
+                    <p class="wcolor"><%= user[i].user.age %> &bull; <%= user[i].user.username %> &bull;
+                      <%= user[i].user.city %></p>
+                    <div>
+                      <span class="badge badge-pill badge-success spill"><%= user[i].percentage %>% Match</span>
+                    </div>
+                    <hr class="myHr">
+                    <% if (user[i].user.bio.length <= 150 ) { %>
+                    <p class="wcolor myHeight"><%= user[i].user.bio %> </p>
+                    <% } else { %>
+                    <p class="wcolor myHeight"><%= user[i].user.bio.substring(0,250) %>...</p>
+                    <% } %>
+                    <a href="/profile/<%= user[i].user._id %>" class="btn rounded-0">VIEW PROFILE</a>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <% } else { %>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-5 col-12 text-start pmclass">
+                    <div class="img d-flex justify-content-start">
+                      <img src="<%= user[i].user.image %> " alt="..." class="d-block cimg">
+                    </div>
+                  </div>
+                  <div class="test col-lg-6 col-7 vnclass text-center">
+                    <h3 class="card-title wcolor"><%= user[i].user.fullName %></h3>
+                    <p class="wcolor"><%= user[i].user.age %> &bull; <%= user[i].user.username %> &bull;
+                      <%= user[i].user.city %></p>
+                    <div>
+                      <span class="badge badge-pill badge-success spill"><%= user[i].percentage %>% match</span>
+                    </div>
+                    <hr class="myHr">
+                    <% if (user[i].user.bio.length <= 150 ) { %>
+                    <p class="wcolor myHeight"><%= user[i].user.bio %> </p>
+                    <% } else { %>
+                    <p class="wcolor myHeight"><%= user[i].user.bio.substring(0,250) %>...</p>
+                    <% } %>
+                    <a href="/profile/<%= user[i].user._id %>" class="btn rounded-0">VIEW PROFILE</a>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+              <% } %>
+            </div>
+          </div>
+          <% if (user.length > 1) { %>
+          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+  </div>
+  </div>
+  <%- include("../partials/footer") %>

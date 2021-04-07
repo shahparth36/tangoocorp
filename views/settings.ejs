@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <title><%= currentUser.username %> | Tango | Settings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/settings.css">
+</head>
+<body>
+    <!-- Navbar and sidebar start -->
+    
+    <input type="checkbox" id="check">
+    <nav id="myNav" class="navbar fixed-top">
+        <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+                width="42" height="42" class="d-inline-block align-top navimg" alt="">
+            <span id="myBrand">Tango</span>
+        </a>
+    </nav>
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="<%= user.image %>" class="profile_image" alt="">
+            <h4><%= user.fullName %></h4>
+        </center>
+        <div class="scrollable">
+            <a href="/profile/<%= user._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="/likedProfiles/<%= user._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= user._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="/settings/<%= user._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </div>
+    </div>
+    
+    <!-- Navbar and sidebar end -->
+
+    <div class="content py-5">
+        <div class="container">
+            <% if(error && error.length>0){ %>
+                <div class="row d-flex justify-content-between m-2">
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
+                    <%= error %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </div>
+                <% } %>
+                <% if(success && success.length>0){ %>
+                <div class="row d-flex justify-content-between m-2">
+                  <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
+                    <%= success %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </div>
+                <% } %>
+                <div class="card border shadow">
+                    <div class="row gclass">
+                        <div class="col-6 col-sm-2 pr-0 mr-0">
+                            <div id="settings-header" class="card-header paclass">
+                                <a id="settingsbutton">
+                                    Settings
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-2 pl-0 ml-0 pr-0 mr-0">
+                            <div id="profile-header" class="card-header mclass">
+                                <a id="profilebutton">
+                                    Profile
+                                </a>
+                            </div>
+                        </div>
+                        <div id="idDiv" class="col-sm-8 pl-0 ml-0">
+                            <div class="card-header chclass">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="settingsdiv" class="row px-5">
+                        <div class="col-12 col-sm-5 my-4">
+                            <div class="row text-center mt-4">
+                                <div class="col-12">
+                                    <img src="<%= user.image %>" class="imgc" alt="...">
+                                </div>
+                            </div>
+                            <div class="row text-center mt-4 justify-content-center">
+                                <div class="col-12 text-center justify-content-center">
+                                    <p >Member since
+                                        <%= moment(user.createdAt).format("MMM Do YY") %>
+                                    </p>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary rounded-0 mt-4" data-toggle="modal" data-target="#exampleModal">
+                                        Update Profile Picture
+                                        <i class="fas fa-edit ml-2"></i>
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <form action="/edit/<%= user._id%>/image?_method=PUT" method="POST" enctype="multipart/form-data">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Update Profile Picture</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row text-center">
+                                                            <div class="col-12 ml-5">
+                                                                <input type="file" name="image" accept="image/*" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary rounded-0">Update</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="row text-center my-4">
+                                <div class="col-12">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger rounded-0" data-toggle="modal" data-target="#exampleModal1">
+                                        Delete Account
+                                        <i class="fas fa-trash ml-2"></i>
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel1">Warning</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure about deleting your account ?</p>
+                                                    <p>There is no going back after this step.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="/delete/<%= user._id %>" method="POST">
+                                                        <button type="submit" class="btn btn-danger rounded-0">Delete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-1 pr-0">
+                            <div class="vl my-3"></div>
+                            <div class="hlr"></div>
+                        </div>
+                        <div class="col-12 col-sm-6 my-3">
+                            <form action="/edit/<%= user._id %>" method="POST">
+                                <div class="row my-4">
+                                    <div class="col-12">
+                                        <label>Username</label>
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                                            </div>
+                                            <input id="username" type="text" class="form-control" placeholder="Username" name="username" value="<%= user.username %>" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label>Email Address</label>
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-envelope"></i></span>
+                                            </div>
+                                            <input id="email" type="text" class="form-control" placeholder="Email"  name="email" value="<%= user.email %>" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-4">
+                                    <div class="col-12">
+                                        <label>Phone Number</label>   
+                                        <div class="input-group flex-nowrap">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile"></i></span>
+                                            </div>
+                                            <input id="phNumber" type="text" class="form-control" placeholder="Phone Number" name="phNumber" value="<%= user.phNumber %>" aria-label="Username" aria-describedby="addon-wrapping" readonly>
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center mt-4 ">
+                                    <div class="col">
+                                        <button id="edit" type="submit" class="btn btn-block btn-primary rounded-0"> Edit Details </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="hl"></div>
+                            <form action="/changePassword/<%= user._id %>" method="POST">
+                                <div class="col-12">
+                                    <legend class="text-center my-3">Change Password</legend>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-11 col-sm-11">
+                                                <input type="password" name="password" placeholder="New password"  id="password-field1" class="form-control my-2" required/>
+                                            </div>
+                                            <div class="col-1 col-sm-1 mt-2 pt-2 padclass">
+                                                <!-- <i toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" id="toggle-password1"></i> -->
+                                                <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon" id="toggle-password1"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-11 col-sm-11">
+                                                <input type="password" name="confirm" value="" placeholder="Confirm password"  id="password-field2" class="form-control my-2" required/>
+                                            </div>
+                                            <div class="col-1 col-sm-1 mt-2 pt-2 padclass">
+                                                <!-- <i toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password" id="toggle-password2"></i> -->
+                                                <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon" id="toggle-password2"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-block btn-primary rounded-0">Change Password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="profilediv" class="row px-5">
+                        <h1 class="display-1 text-center home my-4">Your Profile</h1>
+                <div class="row ">
+                    <div class="col-5 mt-1">
+                        <hr>
+                    </div>
+                    <div class="col-1 text-center hrLogo">
+                        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
+                            height="48px;" width="48px;">
+                    </div>
+                    <div class="col-5 ml-2 pl-0 mt-1">
+                        <hr>
+                    </div>
+                </div>
+                <form action="/profile/<%= user._id %>/update?_method=PUT" method="POST" >    
+            <h3 class="card-title text-center mt-4 py-3 display-4 home">Edit Your Profile</h3>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">First Name<span class="star">*</span></label> 
+                        <div class="input-group flex-nowrap">   
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                        </div>                       
+                        <input type="text" class="form-control" placeholder="First Name"  name="user[firstName]" value = "<%= user.firstName %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">Last Name<span class="star">*</span></label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Last Name" name="user[lastName]" value = "<%= user.lastName %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <label class="col-form-label-lg" >City<span class="star">*</span></label>
+                        <div class="input-group pl-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            <select required name="user[city]" class="form-control" aria-label="City " value = "<%= user.city %>" aria-describedby="addon-wrapping">
+                                <option selected disabled value="" >Select City </option>
+                                <% for (var i = 0; i < indianCities.length; i++) { %>
+                                    <% if (indianCities[i] === user.city) { %>
+                                        <option selected><%= indianCities[i] %></option>
+                                    <% } else { %>
+                                       <option><%= indianCities[i]%></option>
+                                <% } %>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6" >
+                        <label class="col-form-label-lg">Gender<span class="star">*</span></label>
+                        <select required name="user[gender]" value = "<%= user.gender %>" class="form-control">
+                            <option disabled value="">--Not Specified--</option>
+                            <% if ( user.gender === "Male") { %>
+                                <option selected>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            <% } else if(user.gender === "Female") { %>
+                                <option>Male</option>
+                                <option selected>Female</option>
+                                <option>Others</option>
+                            <% } else { %>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option selected>Others</option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-sm-6 mx-5 my-4">
+                            <label class="col-form-label-lg">Date Of Birth<span class="star">*</span></label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="addon-wrapping"><i class="fas fa-birthday-cake"></i></span>
+                                </div>
+                                <input type="date" class="form-control" name="user[dob]" value="<%= user.dob %>" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>       
+                    </div>
+                </div>
+                 <div>
+                <div class="row ">
+                    <div class="col-5 mt-1">
+                        <hr>
+                    </div>
+                    <div class="col-1 text-center hrLogo">
+                        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
+                            height="48px;" width="48px;">
+                    </div>
+                    <div class="col-5 ml-2 pl-0 mt-1">
+                        <hr>
+                    </div>
+                </div>
+                   
+                    <div class="row justify-content-center">
+                        <div class="pr-4 mr-5">
+                            <div class="pr-5 mr-5">
+                                <label class="col-form-label-lg pr-5 mr-5">Write Your Bio<span class="star">*</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <textarea required rows="10" cols="50" name="user[bio]"><%= user.bio %></textarea>
+                    </div>
+                </div>    
+                    <div class="row d-flex justify-content-center ">
+                        <div class="col-12 col-sm-6 mt-5">                            
+                                <label class="col-form-label-lg">Your Sexuality<span class="star">*</span></label>
+                                <select name="user[sexuality]" class="form-control" required id="sexuality">
+                                    <option disabled value="">--Not Specified--</option>
+                                <% if(user.sexuality === "Straight") { %>
+                                    <option selected >Straight</option>
+                                    <option>Homosexual</option>
+                                    <option>Bisexual</option>
+                                <% } else if (user.sexuality === "Homosexual") { %>
+                                    <option>Straight</option>
+                                    <option selected>Homosexual</option>
+                                    <option>Bisexual</option>
+                                <% } else { %>
+                                    <option>Straight</option>
+                                    <option>Homosexual</option>
+                                    <option selected>Bisexual</option>
+                                <% } %>
+                                </select>                            
+                        </div>
+                        <div class="col-12 col-sm-6 mt-5" >
+                            <label class="col-form-label-lg">Marital Status<span class="star">*</span></label>
+                            <select required name="user[maritalStatus]" class="form-control">
+                                <option disabled value="">--Not Specified--</option>
+                                <% if(user.maritalStatus === "Single") { %>
+                                    <option selected >Single</option>
+                                    <option>Divorced</option>
+                                    <option>Widowed</option>
+                                <% } else if (user.maritalStatus === "Divorced") { %>
+                                     <option>Single</option>
+                                     <option selected>Divorced</option>
+                                     <option>Widowed</option>
+                                <% } else { %>
+                                     <option>Single</option>
+                                     <option>Divorced</option>
+                                     <option selected>Widowed</option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12 col-sm-6 my-3">
+                            <label class="col-form-label-lg">Preferred Distance<span class="star">*</span></label>
+                            <select name="user[relType]" class="form-control" required id="distance">
+                                <% if(user.relType === "Short Distance Relationships") { %>                                    
+                                    <option selected>Short Distance Relationships</option>
+                                    <option>Long Distance Relationships</option>
+                                    <option>Doesn't Matter</option>
+                                <% } else if (user.relType === "Long Distance Relationships") { %>    
+                                    <option selected>Short Distance Relationships</option>
+                                    <option>Long Distance Relationships</option>
+                                    <option>Doesn't Matter</option>
+                                <% } else { %>
+                                    <option>Short Distance Relationships</option>
+                                    <option selected>Long Distance Relationships</option>
+                                    <option>Doesn't Matter</option> 
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-6 my-3" >
+                            <label class="col-form-label-lg">Live In?<span class="star">*</span></label>
+                            <select required name="user[liveIn]" class="form-control" id="liveIn">
+                                <option>--Not Specified--</option>
+                                <% if(user.liveIn === "Yes") { %>
+                                    <option selected>Yes</option>
+                                    <option>No</option>
+                                    <option>Doesn't Matter</option>
+                                <% } else if(user.liveIn === "No") { %>
+                                    <option>Yes</option>
+                                    <option selected>No</option>
+                                    <option>Doesn't Matter</option>
+                                <% } else { %>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                    <option selected>Doesn't Matter</option>
+                                <% } %>   
+                            </select>   
+                        </div> 
+                    </div>
+                    
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 text-center">
+                                <label class="col-form-label-lg">Preferred Age Group ?<span class="star">*</span></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 col-sm-2 text-center fclass">
+                                <div class="input-group flex-nowrap">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="addon-wrapping">From:</span>
+                                        <select name="user[relInitialAge]" required id="relInitialAge" class="relInitialAge">
+                                            <option disabled selected value="<%= user.relInitialAge %>"></option>
+                                            <% for ( var i =16; i<75; i++) { %>
+                                            <% if (user.relInitialAge == i) { %> 
+                                            <option selected><%= i %></option>
+                                            <% } else { %>
+                                            <option><%= i %></option>
+                                            <% } %>
+                                            <% } %>    
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 col-sm-2 text-center abcd">
+                                <div class="input-group flex-nowrap">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="addon-wrapping">To:</span>
+                                        <select name="user[relFinalAge]" id="relFinalAge" class="relFinalAge" required>
+                                            <option disabled selected value="<%= user.relFinalAge %>"></option>
+                                            <% for ( var i =16; i<75; i++) { %>
+                                                <% if (user.relFinalAge == i) { %>    
+                                            <option selected><%= i %></option>
+                                            <% } else { %>
+                                                <option><%= i %></option>
+                                                <% } %>
+                                                <% } %>        
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </fieldset>
+ 
+                    
+                    <div class="row justify-content-center my-4">
+                        <div class="col-12 col-sm-2 pr-0">
+                            <div class="form-group">
+                                <label class="col-form-label-lg">Do You Smoke?<span class="star">*</span></label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-3 py-3 pl-0">
+                             <% if(user.smoke === "yes") { %>  
+                            <div class="form-check">
+                                <input type="radio" id="yes" name="user[smoke]" value="yes" checked required>
+                                <label for="yes">Yes</label><br>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="no" name="user[smoke]" value="No" required> 
+                                <label for="no">No</label><br>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="occasionally" name="user[smoke]" value="occasionally" required>
+                                <label for="occasionally">Occasionally</label>
+                            </div>
+                             <% } else if (user.smoke === "No") { %>
+                                <div class="form-check">
+                                    <input type="radio" id="yes" name="user[smoke]" value="yes" required>
+                                    <label for="yes">Yes</label><br>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="no" name="user[smoke]" value="No" checked required> 
+                                    <label for="no">No</label><br>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="occasionally" name="user[smoke]" value="occasionally" required>
+                                    <label for="occasionally">Occasionally</label>
+                                </div>
+                           <% }else { %>
+                            <div class="form-check">
+                                <input type="radio" id="yes" name="user[smoke]" value="yes" required>
+                                <label for="yes">Yes</label><br>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="no" name="user[smoke]" value="No" required> 
+                                <label for="no">No</label><br>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="occasionally" name="user[smoke]" value="occasionally" checked required>
+                                <label for="occasionally">Occasionally</label>
+                            </div>
+                           <% } %>
+                        </div>
+                        
+                        <div class="col-12 col-sm-2">    
+                            <div class="form-group">
+                                <label class="col-form-label-lg">Do You Drink?<span class="star">*</span></label>
+                            </div>
+                        </div>
+                        <div class = "col-12 col-sm-2 py-3 pl-0 pr-0">
+                            <% if(user.alcohol === "yes") { %> 
+                            <div class="form-check">
+                                <input type="radio" id="yes" name="user[alcohol]" value="yes" checked required>
+                                <label for="yes">Yes</label><br>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="no" name="user[alcohol]" value="No" required>
+                                <label for="no">No</label><br>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="occasionally" name="user[alcohol]" value="occasionally" required>
+                                <label for="occasionally">Occasionally</label>
+                            </div>
+                            <% } else if (user.alcohol === "No") { %>
+                                <div class="form-check">
+                                    <input type="radio" id="yes" name="user[alcohol]" value="yes" required>
+                                    <label for="yes">Yes</label><br>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="no" name="user[alcohol]" value="No" checked required>
+                                    <label for="no">No</label><br>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="occasionally" name="user[alcohol]" value="occasionally" required>
+                                    <label for="occasionally">Occasionally</label>
+                                </div> 
+                                <% }else { %>
+                                    <div class="form-check">
+                                        <input type="radio" id="yes" name="user[alcohol]" value="yes" required>
+                                        <label for="yes">Yes</label><br>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="no" name="user[alcohol]" value="No" required>
+                                        <label for="no">No</label><br>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="occasionally" name="user[alcohol]" value="occasionally" checked required>
+                                        <label for="occasionally">Occasionally</label>
+                                    </div> 
+                                    <% } %>           
+
+                        </div>
+                    </div> 
+                    <div class="row ">
+                        <div class="col-5 mt-1">
+                            <hr>
+                        </div>
+                        <div class="col-1 text-center hrLogo">
+                            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
+                                height="48px;" width="48px;">
+                        </div>
+                        <div class="col-5 ml-2 pl-0 mt-1">
+                            <hr>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row justify-content-center my-5">
+                            <h3 class="display-4 text-center home">Link Your Social Media Accounts </h3>
+                        </div>
+                        <div class="row mx-5 my-3 d-flex justify-content-center my-4">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="addon-wrapping"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" class="form-control"  value="<%= user.insta_url %>" placeholder="Instagram Account Link (Optional)" name="user[insta_url]"  aria-label="Insta_url" aria-describedby="addon-wrapping">
+                            </div>
+                        </div>
+                        <div class="row mx-5 my-2 d-flex justify-content-center my-4">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="addon-wrapping"><i class="fab fa-facebook" aria-hidden="true"></i></span>
+                                </div>
+                                <input  type="text" class="form-control" value="<%= user.facebook_url %>" placeholder="Facebook Account Link (Optional)" name="user[facebook_url]"  aria-label="Facebook_url" aria-describedby="addon-wrapping" >
+                            </div>
+                        </div>
+                        <div class="row mx-5 my-2 d-flex justify-content-center my-4">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="addon-wrapping"><i class="fab fa-twitter" aria-hidden="true" ></i></span>
+                                </div>
+                                <input  type="text" class="form-control" value="<%= user.twitter_url %>" placeholder="Twitter Account Link (Optional)" name="user[twitter_url]"  aria-label="Twitter_url" aria-describedby="addon-wrapping" >
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mx-5">
+                            <h5>Note: Input fields marked with <span class = "star">*</span> are compulsory.</h5>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center my-5">
+                        <button type="submit" class="btn btn-info rounded-0" style="font-size: 1em" >Update Your Profile<i class="fas fa-edit ml-2"></i></button>
+                    </div> 
+                    <div class="row ">
+                        <div class="col-5 mt-1">
+                            <hr>
+                        </div>
+                        <div class="col-1 text-center hrLogo">
+                            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
+                                height="48px;" width="48px;">
+                        </div>
+                        <div class="col-5 ml-2 pl-0 mt-1">
+                            <hr class="dclass">
+                        </div>
+                    </div>
+                    <h3  class="card-title text-center my-5 display-4 home">Update your profile pictures</h3>
+                    
+                    <div class="row d-flex justify-content-center ml-5">
+                        <% user.images.forEach(function (image) { %>
+                        <div class="col-12 col-md-6 mb-5">
+                            <div class="rounded ">
+                                <img class="rounded-lg" src="<%= image.url %>">
+                            </div>
+                        </div>
+                        <% }); %>
+                    </div> 
+                </form>
+                    <div class="row d-flex justify-content-center mb-4"> 
+                        <span id="span">
+                            <button type="button" class="btn btn-info rounded-0" data-toggle="modal" data-target="#exampleModal3">
+                                Update Profile Pictures
+                                <i class="fas fa-camera ml-2"></i>
+                            </button>
+                        </span>  
+                    
+                        <form  action="/profile/<%= user._id%>/view1?_method=PUT" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header ">
+                                        <h5 class="modal-title" id="exampleModalLabel3">Edit Profile Pictures
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input class="mt-3 mb-5" type="file" accept="image/*" name="images" multiple />
+                                        <div class="row d-flex text-center">
+                                            <% user.images.forEach(function(image,i) { %>
+                                            <div class="col-12">
+                                                <img src="<%= image.url %>" alt="..." width="300px;" height="200px;">
+                                                <div class="my-3">
+                                                    <span class="d-flex justify-content-center">
+                                                        <label class="m-0 h5" for="image<%= i %>">Delete?</label>
+                                                        <input class="mt-1 m-2" type="checkbox" name="deleteImages[]"
+                                                            class="imageDeleteCheckbox" id="<%= i %>" value="<%= image.public_id %>">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <% }) %>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-info rounded-0">
+                                            Update Profile Pictures 
+                                            <i class="fas fa-camera-retro ml-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                        </form>  
+                    </div>
+                    </div>
+                </div>   
+            </div>
+    </div>
+            
+            <%- include("../partials/footer") %>
+
+
+

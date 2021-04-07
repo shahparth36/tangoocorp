@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playball+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/about.css">
+    <link rel="stylesheet" href="/stylesheet/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>About Us | Tango</title>
+</head>
+
+<body>
+    <!-- Navbar and sidebar start -->
+
+    <input type="checkbox" id="check">
+    <nav id="myNav" class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="/home/<%= currentUser._id %>">
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
+                width="42" height="42" class="d-inline-block align-top" alt=""
+                style="margin-left: 40px; margin-right: 5px;">
+            <span id="myBrand">Tango</span>
+        </a>
+    </nav>
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="<%= currentUser.image %>" class="profile_image" alt="">
+            <h4><%= currentUser.fullName %></h4>
+        </center>
+        <div class="scrollable">
+            <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </div>
+    </div>
+
+    <div class="content mt-5 pt-5" style="margin-top: 400px; margin-bottom: -90px;">
+        <div class="container">
+            <div class="jumbotron pb-0">
+                <h3 class="display-3 header-lmntrix">TEAM EUPHORIA <img class="ml-2 mb-3"
+                        src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879082/icons8-two-hearts-96_pqquy4.png" />
+                </h3>
+                <div class="row">
+                    <div class="col-sm-6 col-9 mx-auto desc">
+                        <h4>A Team of Friends and Developers putting their hearts in making this Website and hoping that
+                            you will Like, Support and Enjoy using Tango.<div>Happy Dating!</div>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center mt-5">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-12 col-md-4">
+                <p class="display-4">Our Team</p>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="width: 1200px; margin-right: 120px;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-color:white">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <img class="imagerounded"
+                                src="https://images.hdqwalls.com/download/couple-silhouette-evening-5k-2j-1336x768.jpg">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row text-center mb-5">
+                        <div class="col-12 mt-5">
+                            <div class="card-body pt-0 ">
+                                <h5 class="wcolor txt">Parth Shah</h5>
+                                <p class="card-text txt1 wcolor"><small class="wcolor">CO-FOUNDER |
+                                        <i class="fas fa-tenge px-1 wcolor"></i>
+                                        WEB DEVELOPER </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-color:white">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <img class="imagerounded"
+                                src="https://images.hdqwalls.com/download/couple-silhouette-evening-5k-2j-1336x768.jpg">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row text-center mb-5">
+                        <div class="col-12 mt-5">
+                            <div class="card-body pt-0">
+                                <h5 class="txt wcolor">Miti Shah</h5>
+                                <p class="card-text txt1"><small class="wcolor">CO-FOUNDER |
+                                        <i class="fas fa-tenge px-1"></i>
+                                        WEB DEVELOPER </small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-color: white">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <img class="imagerounded"
+                                src="https://images.hdqwalls.com/download/couple-silhouette-evening-5k-2j-1336x768.jpg">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row text-center mb-5">
+                        <div class="col-12 mt-5">
+                            <div class="card-body pt-0">
+                                <h5 class="txt wcolor">Vinay Jogani</h5>
+                                <p class="card-text txt1"><small class="wcolor">CO-FOUNDER |
+                                        <i class="fas fa-tenge px-1 wcolor"></i>
+                                        WEB DEVELOPER </small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-color: white">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <img class="imagerounded"
+                                src="https://images.hdqwalls.com/download/couple-silhouette-evening-5k-2j-1336x768.jpg">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row text-center mb-5">
+                        <div class="col-12 mt-5">
+                            <div class="card-body pt-0">
+                                <h5 class="txt wcolor">Ishaan Bhondele</h5>
+                                <p class="card-text txt1"><small class="wcolor">CO-FOUNDER |
+                                        <i class="fas fa-tenge px-1 wcolor"></i>
+                                        WEB DEVELOPER </small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    </div>
+    <%- include("../partials/footer") %>

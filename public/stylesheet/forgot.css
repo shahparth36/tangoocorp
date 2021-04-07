@@ -1,0 +1,70 @@
+body {
+  background-color:black;
+    background-image: url(https://www.onlineflowersandcakes.com/wp-content/uploads/2019/11/d5080d95c3bf9fb9ac4de5b6b5e875d3.jpg);
+  
+}
+
+.navbar-brand{
+  font-size: 2em;
+  color:white;
+  font-family: 'Pacifico', cursive;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+#or {
+width: 100%;
+height: 12px;
+border-bottom: 1px solid grey;
+text-align: center;
+}
+
+.lead {
+    font-size: 15px; 
+}
+
+#myDiv {
+    margin-top: 30px;
+}
+
+#myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
+}
+
+#myCard {
+    width: 29rem; 
+    margin: 10rem auto; 
+    padding-top: 1.2rem; 
+    padding-bottom: 3rem;
+}
+
+@media (max-width: 1040px) {
+  
+  nav {
+    position: fixed;
+    padding-top: 0px;
+    width: 480px;
+  }
+  .rclass{
+    margin-left: -7px;
+  }
+  .navbar-brand {
+    padding-top: 0.6525rem;
+  }
+
+  .navbar.mynav{
+    width: 110%;
+  }
+  .mycon {
+
+    margin-top: 150px;
+    margin-left: -14px;
+  }
+  .navbar-toggler{
+    margin-right: -10px;
+  }
+}
