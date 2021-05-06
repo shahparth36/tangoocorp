@@ -145,7 +145,7 @@ router.put(
 );
 
 router.post("/delete/:id", middleware.isLoggedIn, function (req, res) {
-  User.findByIdAndRemove(req.params.id, async function (err, foundUser) {
+  User.findByIdAndRemove(req.params.id, async function (err, user) {
     if (err) {
       console.log(err);
       req.flash("error", "Something went wrong, please try again");
